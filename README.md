@@ -22,7 +22,7 @@ For installation, most \*nix operating systems come with a version of Python ins
 A suggested syllabus for learning Python for the purposes of web application development is as follows:
 
 * Install Python 3.x on your PC.
-* If required, take a [crash course in the Python syntax](https://medium.freecodecamp.org/learning-python-from-zero-to-hero-120ea540b567). This is also a good intro pathway for Python: https://realpython.com/start-here/
+* If required, take a [crash course in the Python syntax](https://medium.freecodecamp.org/learning-python-from-zero-to-hero-120ea540b567). This is also a good intro pathway for Python: <https://realpython.com/start-here/>
 * For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://github.com/downloads/diveintomark/diveintopython3/dive-into-python3.pdf), chapters 0, 1, 2, 3, 4, 7, 11 & 14.
 
 ## Python environment management
@@ -30,7 +30,7 @@ A suggested syllabus for learning Python for the purposes of web application dev
 Once you start working on more than one project, managing separate and isolated Python environments for each one becomes a requirement. This topic is slightly "extra credit", but it's worth learning sooner rather than later. [This is a good primer](https://realpython.com/python-virtual-environments-a-primer/) on Python virtual environments and why you need them. The specifics for how to manage Python virtual environments are very much up to individual developers, but a good starting point is as follows:
 
 * Use [pyenv](https://github.com/pyenv/pyenv) to install and switch between different versions on Python on a host ([installation instructions](https://github.com/pyenv/pyenv#installation)).
-* Use [Poetry](https://python-poetry.org/) to manage project dependency trees ([installation instructions](https://python-poetry.org/docs/#installation)]).
+* Use [Poetry](https://python-poetry.org/) to manage project dependency trees ([installation instructions](https://python-poetry.org/docs/#installation)).
 
 Another popular tool for managing Python dependencies is [pipenv](https://pipenv.pypa.io/en/latest/), as an alternative to Poetry. There is no clear market leader within this topic, and developers are encouraged to experiment and find their own best fit as they gain experience. Additional resources related to managing Python environments:
 
