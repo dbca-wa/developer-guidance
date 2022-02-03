@@ -50,8 +50,8 @@ Examples of web applications that make heavy use of JavaScript in the UI:
 
 A suggested syllabus for learning Django is as follows:
 
-* Once you have a good understanding of Python syntax, complete the ENTIRE Django tutorial (really, the whole thing): [https://docs.djangoproject.com/en/dev/](https://docs.djangoproject.com/en/dev/)
-* As an alternative/supplement to the Django docs tutorial, Mozilla has an excellent tutorial series for Django: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django
+* Once you have a good understanding of Python syntax, complete the ENTIRE Django tutorial (really, the whole thing): <https://docs.djangoproject.com/en/dev/>
+* As an alternative/supplement to the Django docs tutorial, Mozilla has an excellent tutorial series for Django: <https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django>
 
 ## Docker and Kubernetes
 
