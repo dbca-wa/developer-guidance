@@ -6,7 +6,7 @@ This content is intended as a summary introduction for developers that may need 
 
 In addition to this page, the following links may contain useful or more-detailed content for learning Docker:
 
-* https://docker-curriculum.com
+* <https://docker-curriculum.com>
 
 # Docker terms and concepts
 
@@ -49,14 +49,6 @@ Resources:
 A Docker registry is a storage and content delivery system for named Docker images. It can be self-hosted, third-party-hosted, or the  official Docker Hub registry (<https://hub.docker.com/>).
 
 # Docker command examples
-
-OIM has a small Docker swarm for the purposes of testing and learning:
-
-* kens-mate-001 (manager)
-* kens-mate-002 (worker)
-* kens-docker-dev (worker)
-
-The following commands can be carried out on kens-mate-001 for the purposes of learning how to use Docker.
 
 ## Container creation and usage
 
