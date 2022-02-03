@@ -55,7 +55,7 @@ A suggested syllabus for learning Django is as follows:
 
 ## Docker and Kubernetes
 
-All modern web applications in the department are built as Docker images and deployed using Kubernetes. This is a whole technical speciality on its own, so we suggest that new developers not already familiar with Docker ease into it over time (concentrate initially on Python, Django and getting set up with our other collaboration tools.
+All modern web applications in the department are built as Docker images and deployed using Kubernetes. This is a whole technical speciality on its own, so we suggest that new developers not already familiar with Docker ease into it over time (concentrate initially on Python, Django and getting set up with our other collaboration tools).
 
 For the enthusiastic, here are some resources to starting learning about [Docker](/Docker.md), and an intro to Kubernetes below.
 
@@ -86,15 +86,14 @@ Resources that are useful / relevant for internal developers to learn just enoug
 ## Security awareness
 
 * [1Password](https://1password.com/) - a service for managing and sharing organisational secrets.
-* Keep sensitive information out of project repositories - don't commit user credentials, passwords, access keys or database dumps to the repository. Get in the habit of creating a `.gitignore` file and adding relevant file patterns to it, in order to reduce the chance of this happening.
+* Keep sensitive information out of project repositories - don't commit user credentials, passwords, access keys or database dumps to the repository. Get in the habit of creating a `.gitignore` file and adding relevant file patterns to it in order to reduce the chance of this happening.
 * ISAP - the department runs an Information Security Awareness Program training course that is compulsory. Even if the information seems basic, try to internalise the content and cultivate a security mindset.
 * In the case of credentials or keys, the recommended approach is to make your settings/config code read these pieces of information in via **environment variables**.
 
 ## Extra credit
 
-* Learn the Linux command line, if you don't already use it. Read the "Intro to the Linux command line" section below. Your career will thank you.
-* Undertake a small development project, ideally with another new team member (talk to a senior team member for a project specification).
-
+* Learn the Linux command line, if you don't already use it. This is a valuable skillset for any IT professional; your career will thank you.
+* Undertake a small development project, ideally in collaboration with another new team member (talk to a senior team member for a project specification).
 
 # Development environment
 
