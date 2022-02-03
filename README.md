@@ -66,7 +66,6 @@ Resources that are useful / relevant for internal developers to learn just enoug
 * [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/) - Learning path from Microsoft. Pretty thorough introduction to Docker, containers and AKS in general.
 * [Kubernetes Documentation](https://kubernetes.io/docs/home/) - comprehensive, but not the best introductory learning resource. Has a pretty good set of interactive tutorials.
 
-
 ### Other resources
 
 * [Introduction to Kustomize](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/) - Kustomize provides a solution for customizing Kubernetes resource configuration.
@@ -114,7 +113,7 @@ Some good additional resources from the internet are as follows:
 
 Microsoft has made it surprisingly easy to run a Linux environment under Windows 10. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/install) is a fairly good substitute for a full VM, and is a lot more pleasant for Python development than using the Win32 ported equivalent of the tools. There are a few cases where support is less than optimal (e.g. some complex filesystem interactions fail, meaning you can't run PostgreSQL), but for basic development it provides a good alternative or transitional step to a full UNIX environment.
 
-A decent guide for installing Docker inside the Ubuntu WSL is here: https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7 (includes instructions for installing the Azure CLI and dotnet core).
+A decent guide for installing Docker inside the Ubuntu WSL is [here](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7) (includes instructions for installing the Azure CLI and dotnet core).
 
 Failing that, there's the option of using an emulator like VirtualBox to run a local Linux VM for development purposes but this can consume a fair amount of your computer's resources.
 
