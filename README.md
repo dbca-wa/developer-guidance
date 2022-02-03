@@ -57,10 +57,29 @@ A suggested syllabus for learning Django is as follows:
 
 All modern web applications in the department are built as Docker images and deployed using Kubernetes. This is a whole technical speciality on its own, so we suggest that new developers not already familiar with Docker ease into it over time (concentrate initially on Python, Django and getting set up with our other collaboration tools.
 
-For the enthusiastic, here are some resources to starting learning about Docker and Kubernetes on the wiki:
+For the enthusiastic, here are some resources to starting learning about [Docker]](/Docker.md), and an intro to Kubernetes below:
 
-* [Docker overview](/Docker.md)
-* [Kubernetes resources](/Kubernetes.md)
+### Learning & documentation
+
+Resources that are useful / relevant for internal developers to learn just enough about Kubernetes to be productive.
+
+* [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/) - Learning path from Microsoft. Pretty thorough introduction to Docker, containers and AKS in general.
+* [Kubernetes Documentation](https://kubernetes.io/docs/home/) - comprehensive, but not the best introductory learning resource. Has a pretty good set of interactive tutorials.
+
+
+### Other resources
+
+* [Introduction to Kustomize](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/) - Kustomize provides a solution for customizing Kubernetes resource configuration.
+* [Lens](https://docs.k8slens.dev/main/) - a nice client-side management tool for Kubernetes clusters. See [this article](https://opensource.com/article/20/7/kubernetes-lens) for an overview.
+* [Rancher Desktop](https://rancherdesktop.io/) - an open-source desktop application for Mac and Windows, providing Kubernetes and container management in a desktop installer.
+
+### kubectl references
+
+* Reference (https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
+* Cheatsheet: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+* Conventions: https://kubernetes.io/docs/reference/kubectl/conventions/
+
+
 
 ## Development tools
 
