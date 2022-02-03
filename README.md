@@ -57,7 +57,7 @@ A suggested syllabus for learning Django is as follows:
 
 All modern web applications in the department are built as Docker images and deployed using Kubernetes. This is a whole technical speciality on its own, so we suggest that new developers not already familiar with Docker ease into it over time (concentrate initially on Python, Django and getting set up with our other collaboration tools.
 
-For the enthusiastic, here are some resources to starting learning about [Docker]](/Docker.md), and an intro to Kubernetes below:
+For the enthusiastic, here are some resources to starting learning about [Docker](/Docker.md), and an intro to Kubernetes below:
 
 ### Learning & documentation
 
@@ -78,8 +78,6 @@ Resources that are useful / relevant for internal developers to learn just enoug
 * Reference (https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
 * Cheatsheet: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 * Conventions: https://kubernetes.io/docs/reference/kubectl/conventions/
-
-
 
 ## Development tools
 
