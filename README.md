@@ -24,7 +24,7 @@ A suggested syllabus for learning Python for the purposes of web application dev
 * Install Python 3.x on your PC.
 * If required, take a [crash course in the Python syntax](https://medium.freecodecamp.org/learning-python-from-zero-to-hero-120ea540b567). This is also a good intro pathway for Python: https://realpython.com/start-here/
 * For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://github.com/downloads/diveintomark/diveintopython3/dive-into-python3.pdf), chapters 0, 1, 2, 3, 4, 7, 11 & 14.
-* Learn about using Python virtual environments for project dependency management: [https://docs.python-guide.org/dev/virtualenvs/](https://docs.python-guide.org/dev/virtualenvs/). There is some additional resources in this wiki about [managing Python virtual environments](/Applications/Internal-development-guidelines/Python-environment-management).
+* Learn about using Python virtual environments for project dependency management: <https://docs.python-guide.org/dev/virtualenvs/>
 * Set up an Ubuntu-based development environment and get to mastering the Linux CLI.
 
 ## Django
@@ -33,8 +33,8 @@ A suggested syllabus for learning Python for the purposes of web application dev
 
 Examples of web applications developed using Django:
 
-* [Planning Referral System](https://prs.dbca.wa.gov.au) - code repository at https://github.com/dbca-wa/prs
-* [IBMS](https://ibms.dbca.wa.gov.au) - code repository at https://github.com/dbca-wa/ibms
+* [Planning Referral System](https://prs.dbca.wa.gov.au) - code repository at <https://github.com/dbca-wa/prs>
+* [IBMS](https://ibms.dbca.wa.gov.au) - code repository at <https://github.com/dbca-wa/ibms>
 
 To minimise development effort, we typically take the following approach when building a new system:
 
@@ -85,7 +85,7 @@ Resources that are useful / relevant for internal developers to learn just enoug
 
 ## Security awareness
 
-* [1Password](https://1password.com/) - a service for managing and sharing organisational secrets (lastpass also good).
+* [1Password](https://1password.com/) - a service for managing and sharing organisational secrets.
 * Keep sensitive information out of project repositories - don't commit user credentials, passwords, access keys or database dumps to the repository. Get in the habit of creating a `.gitignore` file and adding relevant file patterns to it, in order to reduce the chance of this happening.
 * ISAP - the department runs an Information Security Awareness Program training course that is compulsory. Even if the information seems basic, try to internalise the content and cultivate a security mindset.
 * In the case of credentials or keys, the recommended approach is to make your settings/config code read these pieces of information in via **environment variables**.
