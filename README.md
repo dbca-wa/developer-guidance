@@ -57,7 +57,7 @@ A suggested syllabus for learning Django is as follows:
 
 All modern web applications in the department are built as Docker images and deployed using Kubernetes. This is a whole technical speciality on its own, so we suggest that new developers not already familiar with Docker ease into it over time (concentrate initially on Python, Django and getting set up with our other collaboration tools.
 
-For the enthusiastic, here are some resources to starting learning about [Docker](/Docker.md), and an intro to Kubernetes below:
+For the enthusiastic, here are some resources to starting learning about [Docker]](/Docker.md), and an intro to Kubernetes below:
 
 ### Learning & documentation
 
@@ -78,6 +78,8 @@ Resources that are useful / relevant for internal developers to learn just enoug
 * Reference (https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
 * Cheatsheet: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 * Conventions: https://kubernetes.io/docs/reference/kubectl/conventions/
+
+
 
 ## Development tools
 
@@ -105,13 +107,13 @@ OIM application developers are encouraged to undertake development locally in an
 
 For the best development experience, OIM recommends developers install a variant of Linux on their workstation, either outright or in a dual-boot arrangement with Windows. We've found Ubuntu 20.04 and up to have a good user experience plus up-to-date packages, but the choice of distribution can be entirely up to the user.
 
-Additional information can be found in this wiki at [Intro to the Linux line](/Applications/Internal-development-guidelines/Intro-to-the-Linux-command-line).
+Additional information can be found in this wiki at [Intro to the Linux command line](/Applications/Internal-development-guidelines/Intro-to-the-Linux-command-line).
 
 ## Windows 10
 
 Microsoft has made it surprisingly easy to run a Linux environment under Windows 10. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/install) is a fairly good substitute for a full VM, and is a lot more pleasant for Python development than using the Win32 ported equivalent of the tools. There are a few cases where support is less than optimal (e.g. some complex filesystem interactions fail, meaning you can't run PostgreSQL), but for basic development it provides a good alternative or transitional step to a full UNIX environment.
 
-A decent guide for installing Docker inside the Ubuntu WSL is here: https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7 (includes instructions for installing the Azure CLI and dotnet core).
+A decent guide for installing Docker inside the Ubuntu WSL is [here](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7) (includes instructions for installing the Azure CLI and dotnet core).
 
 Failing that, there's the option of using an emulator like VirtualBox to run a local Linux VM for development purposes but this can consume a fair amount of your computer's resources.
 
