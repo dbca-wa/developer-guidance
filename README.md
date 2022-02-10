@@ -22,12 +22,12 @@ For installation, most \*nix operating systems come with a version of Python ins
 A suggested syllabus for learning Python for the purposes of web application development is as follows:
 
 * Install Python 3.x on your PC.
-* If required, take a [crash course in the Python syntax](https://medium.freecodecamp.org/learning-python-from-zero-to-hero-120ea540b567). This is also a good intro pathway for Python: <https://realpython.com/start-here/>
-* For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://github.com/downloads/diveintomark/diveintopython3/dive-into-python3.pdf), chapters 0, 1, 2, 3, 4, 7, 11 & 14.
+* If required, take a [crash course in the Python syntax](https://www.freecodecamp.org/news/learning-python-from-zero-to-hero-120ea540b567). This is also a good intro for Python: <https://realpython.com/python-first-steps/>
+* For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://github.com/downloads/diveintomark/diveintopython3/dive-into-python3.pdf), chapters 0, 1, 2, 3, 4, 7, 11 & 14 (the whole book is valuable, but these chapters will get you bascially productive).
 
 ## Python environment management
 
-Once you start working on more than one project, managing separate and isolated Python environments for each one becomes a requirement. This topic is slightly "extra credit", but it's worth learning sooner rather than later. [This is a good primer](https://realpython.com/python-virtual-environments-a-primer/) on Python virtual environments and why you need them. The specifics for how to manage Python virtual environments are very much up to individual developers, but a good starting point is as follows:
+Once you start working on more than one project, managing separate and isolated Python environments for each one becomes a requirement. This topic is slightly "extra credit" (it's most important to get in and start learning the syntax), but it's worth learning sooner rather than later. [This is a good primer](https://realpython.com/python-virtual-environments-a-primer/) on Python virtual environments and why you need them. The specifics for how to manage Python virtual environments are very much up to individual developers, but a good starting point is as follows:
 
 * Use [pyenv](https://github.com/pyenv/pyenv) to install and switch between different versions on Python on a host ([installation instructions](https://github.com/pyenv/pyenv#installation)).
 * Use [Poetry](https://python-poetry.org/) to manage project dependency trees ([installation instructions](https://python-poetry.org/docs/#installation)).
@@ -57,9 +57,7 @@ To minimise development effort, we typically take the following approach when bu
 4. Customise the Django admin for internal end users (e.g. hiding fields, add business rules, add related inlines as tables/stacked forms). This should be sufficient for a small, proficient group of users.
 5. Replace high throughput (lots of users / users with not much scope for training such as the public) interface pages with [VueJS](https://vuejs.org/) and API interactions such as [Django Rest Framework](http://www.django-rest-framework.org/) if you enjoy the pain of developing in two languages, or with Django's own class-based views for more oldschool request/response forms.
 
-Examples of web applications that make heavy use of JavaScript in the UI:
-
-* [ParkStay Bookings](https://parkstaybookings.dbca.wa.gov.au/map/)
+An example of a web application that make heavy use of JavaScript in the UI is [ParkStay Bookings](https://parkstaybookings.dbca.wa.gov.au/map/).
 
 A suggested syllabus for learning Django is as follows:
 
@@ -105,7 +103,7 @@ Resources that are useful / relevant for internal developers to learn just enoug
 
 ## Extra credit
 
-* Set up an Ubuntu-based development environment and get to mastering the Linux command line, if you don't already use it. This is a valuable skillset for any IT professional; your career will thank you.
+* Set up an Ubuntu-based development environment and get to mastering the Linux command line, if you don't already use it. This is a valuable skillset for any IT professional; your career will thank you. In a Windows 10 environment, we have found it to be a good experience to [set up an Ubuntu development environment using WSL](https://docs.microsoft.com/en-us/windows/wsl/setup/environment).
 * Undertake a small development project, ideally in collaboration with another new team member (talk to a senior team member for a project specification).
 
 # Development environment
