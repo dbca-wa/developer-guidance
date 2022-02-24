@@ -7,6 +7,7 @@ This content is intended as a summary introduction for developers that may need 
 In addition to this page, the following links may contain useful or more-detailed content for learning Docker:
 
 * <https://docker-curriculum.com>
+* <https://docs.linuxserver.io/general/containers-101>
 
 # Docker terms and concepts
 
