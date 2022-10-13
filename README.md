@@ -129,7 +129,7 @@ Failing that, there's the option of using an emulator like VirtualBox to run a l
 
 ## Mac OS X
 
-Apple includes a lot of UNIXy tools in the standard OS X environment, but isn't very prompt in keeping the software up to date. You may have some luck using [Homebrew](https://brew.sh/), which is styled to be like a Linux package manager. See https://hackercodex.com/guide/mac-development-configuration/
+Apple includes a lot of UNIXy tools in the standard OS X environment, but isn't very prompt in keeping the software up to date. You may have some luck using [Homebrew](https://brew.sh/), which is styled to be like a Linux package manager. See <https://hackercodex.com/guide/mac-development-configuration/>
 
 # Source control (Git)
 
