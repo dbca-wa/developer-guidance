@@ -27,6 +27,8 @@ Additional HTTP headers which are appended to a request by Nginx for Auth2-authe
 * `X-Last-name` - the user's surname.
 * `X-Groups` - a comma-separated list of the user's group memberships within Auth2 itself. This value can be optionally used for the purposes of authorisation.
 
+**NOTE**: not all HTTP headers are guaranteed to be included with the HTTP response. For an authenticated user, the `X-Email` header will **always** be included. `X-First-name` and `X-Last-name` are not guaranteed be included, because an external identity provider might not always provide a value for those fields, therefore the values sent to Nginx will be empty. Likewise, it is possible for an authenticated user to not belong to any groups within Auth2, therefore the `X-Groups` header value might also be empty. Nginx will not forward HTTP headers with null values, so these headers will be absent from the response.
+
 # Nginx rules summary
 
 The requirement (or not) for SSO via Auth2 for web applications is managed by Nginx rules. These rules include several variations that allow different methods of authentication to be required. Rule can be applied at the domain level (i.e. the same rule will apply for all locations within a domain), or at the location level (i.e. different rules apply at each location). All rule types described below can be used at once within a domain for different locations.
