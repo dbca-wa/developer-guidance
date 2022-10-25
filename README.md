@@ -2,8 +2,8 @@
 
 Additional resource documentation pages:
 
-* [Docker](/Docker)
-* [Auth2](/Auth2)
+* [Docker](/developer-guidance/Docker)
+* [Auth2](/developer-guidance/Auth2)
 
 # New developer syllabus
 
