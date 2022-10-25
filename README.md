@@ -1,15 +1,15 @@
-# Contents
+# DBCA developer guidance
 
-Additional resource documentation pages:
+This is a resource for developers new to DBCA, to get to a basic standard of understanding of our development tools and processes. Individuals should feel free to skip elements for which they already have a good level of competency. This page is not prescriptive, but it represents a sensible order of operations for a new hire to go through.
+
+Additional resource documentation pages include the following:
 
 * [Docker](/developer-guidance/Docker)
 * [Auth2](/developer-guidance/Auth2)
 
-# New developer syllabus
+# Web development stack
 
-This is a checklist for developers new to the DBCA standard architecture to undertake, to get to a basic standard of understanding of our development tools and processes. Individuals should feel free to skip work items for which they already have a good level of competency. This list is not prescriptive, but it represents a sensible order of operations for a new hire to go through.
-
-To summarise the recommended technology stack for new development projects:
+To summarise the recommended technology stack for new web development projects:
 
 * Python - programming/scripting language
 * Django - Web application framework
