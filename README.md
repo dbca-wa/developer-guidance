@@ -1,3 +1,10 @@
+# Contents
+
+Additional resource documentation pages:
+
+* [Docker](/Docker)
+* [Auth2](/Auth2)
+
 # New developer syllabus
 
 This is a checklist for developers new to the DBCA standard architecture to undertake, to get to a basic standard of understanding of our development tools and processes. Individuals should feel free to skip work items for which they already have a good level of competency. This list is not prescriptive, but it represents a sensible order of operations for a new hire to go through.
