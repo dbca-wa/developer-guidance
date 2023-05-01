@@ -30,7 +30,7 @@ A suggested syllabus for learning Python for the purposes of web application dev
 
 * Install Python 3.x on your PC.
 * If required, take a [crash course in the Python syntax](https://www.freecodecamp.org/news/learning-python-from-zero-to-hero-120ea540b567). This is also a good intro for Python: <https://realpython.com/python-first-steps/>
-* For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://github.com/downloads/diveintomark/diveintopython3/dive-into-python3.pdf), chapters 0, 1, 2, 3, 4, 7, 11 & 14 (the whole book is valuable, but these chapters will get you bascially productive).
+* For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://diveintopython3.net/), chapters 0, 1, 2, 3, 4, 7, 11 & 14 (the whole book is valuable, but these chapters will get you basically productive).
 
 ## Python environment management
 
