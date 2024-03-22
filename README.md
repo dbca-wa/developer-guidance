@@ -4,6 +4,7 @@ This is a resource for developers new to DBCA, to get to a basic standard of und
 
 Additional resource documentation pages include the following:
 
+* [DevOps best practices](/developer-guidance/DevOps)
 * [Docker](/developer-guidance/Docker)
 * [Auth2](/developer-guidance/Auth2)
 
