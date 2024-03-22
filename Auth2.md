@@ -1,10 +1,10 @@
 # Auth2
 
+This documentation is intended for developers who may undertake development of bespoke applications that will interface with the Auth2 single-sign-on (SSO) service.
+
 # Overview
 
-This documentation is intended for developers who may undertake development of bespoke applications that will interface with the Auth2 service.
-
-The Auth2 single-sign-on (SSO) service is a bespoke Django application which works in conjunction with the department's Nginx reverse proxy to allow web applications to use a variety of identity providers (e.g. Microsoft, Apple, Google, etc.) in order to authenticate users. It can also optionally be used to provide authorisation rules for users to access web application locations. Auth2 is supported and administered by OIM staff.
+The Auth2 SSO service is a bespoke Django application which works in conjunction with the department's Nginx reverse proxy to allow web applications to use a variety of identity providers (e.g. Microsoft, Apple, Google, etc.) in order to authenticate users. It can also optionally be used to provide authorisation rules for users to access web application locations. Auth2 is supported and administered by OIM staff.
 
 Simplified, the process for handling a HTTP request for an example integrated web application (`example.dbca.wa.gov.au`) is as follows:
 

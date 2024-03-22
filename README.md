@@ -1,8 +1,15 @@
-# New developer syllabus
+# DBCA developer guidance
 
-This is a checklist for developers new to the DBCA standard architecture to undertake, to get to a basic standard of understanding of our development tools and processes. Individuals should feel free to skip work items for which they already have a good level of competency. This list is not prescriptive, but it represents a sensible order of operations for a new hire to go through.
+This is a resource for developers new to DBCA, to get to a basic standard of understanding of our development tools and processes. Individuals should feel free to skip elements for which they already have a good level of competency. This page is not prescriptive, but it represents a sensible order of operations for a new hire to go through.
 
-To summarise the recommended technology stack for new development projects:
+Additional resource documentation pages include the following:
+
+* [Docker](/developer-guidance/Docker)
+* [Auth2](/developer-guidance/Auth2)
+
+# Web development stack
+
+To summarise the recommended technology stack for new web development projects:
 
 * Python - programming/scripting language
 * Django - Web application framework
@@ -23,7 +30,7 @@ A suggested syllabus for learning Python for the purposes of web application dev
 
 * Install Python 3.x on your PC.
 * If required, take a [crash course in the Python syntax](https://www.freecodecamp.org/news/learning-python-from-zero-to-hero-120ea540b567). This is also a good intro for Python: <https://realpython.com/python-first-steps/>
-* For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://github.com/downloads/diveintomark/diveintopython3/dive-into-python3.pdf), chapters 0, 1, 2, 3, 4, 7, 11 & 14 (the whole book is valuable, but these chapters will get you bascially productive).
+* For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://diveintopython3.net/), chapters 0, 1, 2, 3, 4, 7, 11 & 14 (the whole book is valuable, but these chapters will get you basically productive).
 
 ## Python environment management
 
