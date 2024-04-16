@@ -22,7 +22,7 @@ To summarise the recommended technology stack for new web development projects:
 
 [Python](https://www.python.org/doc/essays/blurb/) is a general purpose programming language which is dynamically typed, interpreted, and known for its easy readability. General principles to be aware of when undertaking development of applications using Python:
 
-* Python 2.x/3.x - the two versions are very similar, but there are some important differences between them. Unless there is an essential business argument for using Python 2, new projects should _always_ be developed against a recent version of Python 3. Python 2.x will not be maintained after 2020.
+* Python 2.x/3.x - New projects should _always_ be developed against a recent version of Python 3. Notwithstanding the similarities, Python 2 is no longer maintained for the purposes of features or security.
 * Correct tool for the job - developers should be mindful of using Python where its strengths are greatest (rapid prototyping, versatility, portability, maintainability) versus other tools that may have advantages (SQL for database queries, command-line tools for file/text handling, JavaScript for DOM manipulation, etc.)
 
 For installation, most \*nix operating systems come with a version of Python installed which will probably be sufficient for learning. For usage instructions, see [this page](https://docs.python.org/3/using/index.html). For installation on Windows, see [this page](https://docs.python.org/3/using/windows.html).
@@ -32,6 +32,7 @@ A suggested syllabus for learning Python for the purposes of web application dev
 * Install Python 3.x on your PC.
 * If required, take a [crash course in the Python syntax](https://www.freecodecamp.org/news/learning-python-from-zero-to-hero-120ea540b567). This is also a good intro for Python: <https://realpython.com/python-first-steps/>
 * For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://diveintopython3.net/), chapters 0, 1, 2, 3, 4, 7, 11 & 14 (the whole book is valuable, but these chapters will get you basically productive).
+* The Hitchhiker's Guide to Python is a well-maintained, opinionated guide of best practices for installing, configuring and using Python: <https://docs.python-guide.org>
 
 ## Python environment management
 
@@ -46,7 +47,6 @@ Another popular tool for managing Python dependencies is [pipenv](https://pipenv
 * pyenv tutorial: <https://amaral.northwestern.edu/resources/guides/pyenv-tutorial>
 * Set up an awesome Python environment: <https://towardsdatascience.com/how-to-setup-an-awesome-python-environment-for-data-science-or-anything-else-35d358cc95d5>
 * Overview of Python dependency management tools: <https://modelpredict.com/python-dependency-management-tools>
-* Learn about using Python virtual environments for project dependency management: <https://docs.python-guide.org/dev/virtualenvs/>
 
 ## Django
 
