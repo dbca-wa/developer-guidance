@@ -120,16 +120,16 @@ OIM application developers are encouraged to undertake development locally in an
 
 ### Linux
 
-For the best development experience, OIM recommends developers install a variant of Linux on their workstation, either outright or in a dual-boot arrangement with Windows. We've found Ubuntu 20.04 and up to have a good user experience plus up-to-date packages, but the choice of distribution can be entirely up to the user.
+For the best development experience, OIM recommends developers install a variant of Linux on their workstation, either outright or in a dual-boot arrangement with Windows. We've found modern Ubuntu to have a good user experience plus up-to-date packages, but the choice of distribution can be entirely up to user preference.
 
 Some good additional resources from the internet are as follows:
 
 - [Linux Tutorial for Beginners](https://ryanstutorials.net/linuxtutorial/)
 - [Linux Command Reference](https://perpetualpc.net/srtd_commands_rev.html)
 
-### Windows 10
+### Windows
 
-Microsoft has made it surprisingly easy to run a Linux environment under Windows 10. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/install) is a fairly good substitute for a full VM, and is a lot more pleasant for Python development than using the Win32 ported equivalent of the tools. There are a few cases where support is less than optimal (e.g. some complex filesystem interactions fail, meaning you can't run PostgreSQL), but for basic development it provides a good alternative or transitional step to a full UNIX environment.
+Microsoft has made it surprisingly easy to run a Linux environment under Windows 10 and newer. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/install) is a good alternative to a full VM, and is a lot more pleasant for Python development than using the Win32 ported equivalent of the tools. There are a few cases where support is less than optimal (e.g. some complex filesystem interactions fail, meaning you can't run PostgreSQL natively), but for basic development it provides a good alternative or transitional step to a full UNIX environment.
 
 A decent guide for installing Docker inside the Ubuntu WSL is [here](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7) (includes instructions for installing the Azure CLI and dotnet core).
 
@@ -156,7 +156,7 @@ Here is a very basic workflow of a Git repository and a developer's fork of it:
 5. Open a pull request (PR) from your fork to the original repo (propose changes).
 6. The project owner reviews and merged your PR into the original repo.
 
-Obviously things become progressively more complicated as we add things such as branching, multiple developers collaborating to update a repo, etc. The specific workflow in use should be settled on in each team; consistency of usage within a team is more important than the workflow chosen. A good, basic workflow is the the Github Flow: https://docs.github.com/en/get-started/quickstart/github-flow
+Obviously things become progressively more complicated as we add things such as branching, multiple developers collaborating to update a repo, etc. The specific workflow in use should be settled on in each team; consistency of usage within a team is more important than the workflow chosen. A good, basic workflow is the the Github Flow: <https://docs.github.com/en/get-started/quickstart/github-flow>
 
 A helpful graphic demonstrating the Git commands to move a repository state between locations is as follows:
 
@@ -179,18 +179,18 @@ We recommend the following steps for getting started with a code repository:
 - In the GitHub UI, [fork the main repository](https://help.github.com/articles/fork-a-repo/) to your own account.
 - Add your fork of the repository as the origin
 
-  ```bash
-  git clone https://github.com/your_username/project_name.git
-  cd project_name
-  ```
+```bash
+git clone https://github.com/your_username/project_name.git
+cd project_name
+```
 
 - Add the original version of the repository as an "upstream" source:
 
-  ```bash
-  git remote add upstream https://github.com/dbca-wa/project_name.git
-  ```
+```bash
+git remote add upstream https://github.com/dbca-wa/project_name.git
+```
 
-Do all of your work in this fork, make a bunch of commits, push frequently, etc. Once a feature is done, use the GitHub UI to create a pull request from your fork to the upstream repository, so that it may be code reviewed. Developers might wish to work on specific features or fixes in a branch and then merge that branch to the master/main branch as needed, however the specific workflow can be defined by the project owner.
+Do all of your work on the fork, make a bunch of commits, push frequently, etc. Once a feature is done, use the GitHub UI to create a pull request from your fork to the upstream repository, so that it may be code reviewed. Developers might wish to work on specific features or fixes in a branch and then merge that branch to the master/main branch as needed, however the specific workflow can be defined by the project owner.
 
 ## Software development best practices
 

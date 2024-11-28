@@ -8,18 +8,16 @@ This content is intended as a summary introduction for developers that may need 
 
 In addition to this page, the following links may contain useful or more-detailed content for learning Docker:
 
-* <https://docker-curriculum.com>
-* <https://docs.linuxserver.io/general/containers-101>
-
-# Docker terms and concepts
+- <https://docker-curriculum.com>
+- <https://docs.linuxserver.io/general/containers-101>
 
 ## What is Docker, and what is a Container?
 
-[Docker](https://opensource.com/resources/what-docker) is a open source computer program that performs operating-system-level virtualisation (also known as containerisation). Docker allows us to deploy and run software applications inside **Containers**, which (roughly) are applications that are packaged up with all the assets needed to run (binaries, libraries, static files, etc.) on any  suitable host that runs the Docker daemon. A Container is (approximately) an executable which is a kind of extremely lightweight VM without including any OS of its own. In effect, Docker provides a set of APIs that a Container can use to access the underlying OS  functions.
+[Docker](https://opensource.com/resources/what-docker) is a open source computer program that performs operating-system-level virtualisation (also known as containerisation). Docker allows us to deploy and run software applications inside **Containers**, which (roughly) are applications that are packaged up with all the assets needed to run (binaries, libraries, static files, etc.) on any suitable host that runs the Docker daemon. A Container is (approximately) an executable which is a kind of extremely lightweight VM without including any OS of its own. In effect, Docker provides a set of APIs that a Container can use to access the underlying OS functions.
 
 Resources:
 
-* What is a container: <https://www.docker.com/what-container>
+- What is a container: <https://www.docker.com/what-container>
 
 ## What is an Image?
 
@@ -33,11 +31,11 @@ A Dockerfile is a text document that contains all of the commands a user would c
 
 Resources:
 
-* Dockerfile specification reference: <https://docs.docker.com/engine/reference/builder/>
+- Dockerfile specification reference: <https://docs.docker.com/engine/reference/builder/>
 
 ## What is a Swarm?
 
-Docker can be run on more than one host which can be made aware of other Docker hosts in a "Swarm". Each host is called a "node", and  nodes can be authorised to manage and control other nodes (or not). Swarm is a clustering and management tool for Docker containers.Currently the Department is not running production applications in a multi-node Swarm, so we don't need to know much more about thisfeature of Docker. We do make use of single-node Swarms to use the features related to application Services and Stacks (see below).
+Docker can be run on more than one host which can be made aware of other Docker hosts in a "Swarm". Each host is called a "node", and nodes can be authorised to manage and control other nodes (or not). Swarm is a clustering and management tool for Docker containers.Currently the Department is not running production applications in a multi-node Swarm, so we don't need to know much more about thisfeature of Docker. We do make use of single-node Swarms to use the features related to application Services and Stacks (see below).
 
 ## What is a Service, and what is a Stack?
 
@@ -45,11 +43,11 @@ A Service is one or more containers that are running the same version of a Conta
 
 Resources:
 
-* <https://docs.docker.com/get-started/part3/>
+- <https://docs.docker.com/get-started/part3/>
 
 ## What is a Registry?
 
-A Docker registry is a storage and content delivery system for named Docker images. It can be self-hosted, third-party-hosted, or the  official Docker Hub registry (<https://hub.docker.com/>).
+A Docker registry is a storage and content delivery system for named Docker images. It can be self-hosted, third-party-hosted, or the official Docker Hub registry (<https://hub.docker.com/>).
 
 # Docker command examples
 
@@ -71,33 +69,37 @@ docker container run --detach --publish 8281:8080 --env DATABASE_URL=postgres://
 
 Breakdown:
 
-* Searches Docker Hub for an image called "nginx" and downloads the latest one (caches it locally).
-* Creates a new container based on the image.
-* Gives it a virtual IP on a private network in the Docker engine.
-* Open port 80 on the host, and forward that to port 80 inside the container.
-* Runs the container in the foreground.
+- Searches Docker Hub for an image called "nginx" and downloads the latest one (caches it locally).
+- Creates a new container based on the image.
+- Gives it a virtual IP on a private network in the Docker engine.
+- Open port 80 on the host, and forward that to port 80 inside the container.
+- Runs the container in the foreground.
 
 ```bash
 docker container run --publish 80:80 --detach nginx
 ```
 
 Same as above, but detached. Stop a container:
+
 ```bash
 docker container stop <CONTAINER ID>
 ```
 
 List containers:
+
 ```bash
 docker container ls
 docker container ls -a
 ```
 
 Give it a name ("webhost"):
+
 ```bash
 docker container run --publish 80:80 --detach --name webhost nginx
 ```
 
 View logs, use top and stop it:
+
 ```bash
 docker container logs <NAME>
 docker container top <NAME>
@@ -106,6 +108,7 @@ docker container stop <NAME>
 ```
 
 Remove containers:
+
 ```bash
 docker container ls -a
 docker container rm <ID1> <ID2>
@@ -113,6 +116,7 @@ docker container rm -f <ID OF RUNNING CONTAINER>
 ```
 
 Manage containers assignment (command list):
+
 ```bash
 docker container run --publish 8082:80 --detach --name webserver httpd
 docker container logs webserver
@@ -126,6 +130,7 @@ docker container ls -a
 ```
 
 Viewing information about running containers:
+
 ```bash
 docker container top <NAME>
 docker container inspect <NAME>
@@ -133,6 +138,7 @@ docker container stats
 ```
 
 Getting inside a running container:
+
 ```bash
 # Start a container interactively and run sh in it:
 docker container start -it alpine sh
@@ -141,6 +147,7 @@ docker container exec -it <NAME> bash
 ```
 
 Misc. command dump:
+
 ```bash
 # Display IP address of a running container:
 docker container inspect --format '{{ .NetworkSettings.IPAddress }}' <NAME>
@@ -149,6 +156,7 @@ docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm
 ```
 
 Docker container networking: <https://docs.docker.com/network/>
+
 ```bash
 docker network ls
 docker network inspect <NAME>
@@ -158,22 +166,25 @@ docker network disconnect <NETWORK> <CONTAINER>
 ```
 
 ## Container lifetime & persistent data
-* Containers are usually immutable and ephemeral.
-* Non-ephemeral data (databases, uploaded files, etc.) needs to be persisted. It is more important than the container itself.
-* Data can be persisted using volumes and bind mounts.
+
+- Containers are usually immutable and ephemeral.
+- Non-ephemeral data (databases, uploaded files, etc.) needs to be persisted. It is more important than the container itself.
+- Data can be persisted using volumes and bind mounts.
 
 Define a named volume when starting a container:
+
 ```bash
 docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
 docker container run -d --name pgdb -e POSTGRES_PASSWORD=pass -p 5433:5432 -v pgdb:/var/lib/postgresql/data postgres:10-alpine
 ```
 
 Bind mounting maps a host file/dir to a container file/dir. Can't use this in a Dockerfile, must be at container run. E.g.:
+
 ```bash
 docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v /path/on/host:/path/in/container mysql
 ```
 
-# Docker Swarm
+## Docker Swarm
 
 Swarm mode uses a distributed consensus to maintain cohesion. Raft consensus overview: <http://thesecretlivesofdata.com/raft/>
 
@@ -183,21 +194,23 @@ Creating a swarm using overlay network driver creates a distributed network betw
 
 Reference: <https://docs.docker.com/network/overlay/>
 
-Swarm services connected to the same overlay network expose all ports to each other. For a port to be accessible outside of the  service, it must be published on service create/update. All nodes in a swarm participate in an ingress routing mesh. The mesh enables  each node in the swarm to accept connections on published ports to any service running in the swarm. Routing mesh docs: <https://docs.docker.com/engine/swarm/ingress/>
+Swarm services connected to the same overlay network expose all ports to each other. For a port to be accessible outside of the service, it must be published on service create/update. All nodes in a swarm participate in an ingress routing mesh. The mesh enables each node in the swarm to accept connections on published ports to any service running in the swarm. Routing mesh docs: <https://docs.docker.com/engine/swarm/ingress/>
 
 The routing mesh:
 
-* Routes ingress (incoming) network packets for a service to the proper task.
-* Spans all nodes in the swarm.
-* Load balances swarm services across their tasks.
+- Routes ingress (incoming) network packets for a service to the proper task.
+- Spans all nodes in the swarm.
+- Load balances swarm services across their tasks.
 
 To enable Swarm mode for a Docker host:
+
 ```bash
 docker swarm init
 docker info
 ```
 
 Service commands:
+
 ```bash
 docker service create alpine ping 1.1.1.1
 docker service ls
@@ -207,6 +220,7 @@ docker service rm <NAME>
 ```
 
 Swarm commands:
+
 ```bash
 docker node ls
 docker swarm join-token [manager|worker]
@@ -241,7 +255,7 @@ docker service logs --tail 50 --follow <SERVICE/TASK>
 docker service logs --tail 500 <SERVICE> 2>&1 | grep "Some search text"
 ```
 
-# Docker Compose
+## Docker Compose
 
 Compose is a tool for defining and running multi-container Docker applications: Compose file format reference: <https://docs.docker.com/compose/compose-file/>
 
@@ -279,14 +293,15 @@ Using Compose to build images: use the [**build**](https://docs.docker.com/compo
 
 ## Swarm Stacks using Compose
 
-Stacks are another abstraction in Docker Swarm. Stacks accept Compose files as their declarative definition for services, volumes and  networks. Stack commands:
+Stacks are another abstraction in Docker Swarm. Stacks accept Compose files as their declarative definition for services, volumes and networks. Stack commands:
+
 ```bash
 docker stack ls
 docker stack services <STACK>  # Lists the current services for a stack
 docker stack ps <STACK>  # Shows the tasks (running or not) for a stack
 ```
 
-# A basic Docker image recipe
+## A basic Docker image recipe
 
 Basic steps are as follows:
 
@@ -307,11 +322,11 @@ Basic steps are as follows:
 
 Best practices for building Docker images:
 
-- https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
-- https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices/
-- Production-ready images for Python: https://pythonspeed.com/docker/
+- <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/>
+- <https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices/>
+- Production-ready images for Python: <https://pythonspeed.com/docker/>
 
-# Using the GitHub Container Repository (ghcr.io)
+## Using the GitHub Container Repository (ghcr.io)
 
 There are a couple of steps required for a developer to use the GitHub Container Repository to upload build Docker images.
 
