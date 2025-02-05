@@ -104,7 +104,7 @@ The following ebook is a well-regarded and very readable collection of advice re
 All public DBCA source code repositories are located at the [department's GitHub organisation](https://github.com/dbca-wa). Usage of the department's GitHub organisation is subject to the following principles:
 
 - Developers are not required to use their DBCA email address as the primary for their GitHub account, but they are required to list their real name on their account profile.
-- Developers require MFA to be enabled on their GitHub accounts require MFA to be enabled before being added to the DBCA organisation.
+- Developers require MFA to be enabled on their GitHub accounts before being added to the DBCA organisation.
 - Repository access permissions are managed via group memberships, which are managed by OIM administrators.
 - Developers are responsible for not committing sensitive information and data into hosted code repositories.
 
