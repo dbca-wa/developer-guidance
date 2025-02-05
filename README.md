@@ -101,7 +101,12 @@ The following ebook is a well-regarded and very readable collection of advice re
 
 [Git](https://git-scm.com/) is a free and open source version control system. Learning to use Git is non-trivial and can be intimidating. However, it is the most widely-used VCS in the world therefore learning to use it will be a good investment of time for any developer.
 
-All public DBCA source code repositories are located at the [department's GitHub account](https://github.com/dbca-wa).
+All public DBCA source code repositories are located at the [department's GitHub organisation](https://github.com/dbca-wa). Usage of the department's GitHub organisation is subject to the following principles:
+
+- Developers are not required to use their DBCA email address as the primary for their GitHub account, but they are required to list their real name on their account profile.
+- Developers require MFA to be enabled on their GitHub accounts require MFA to be enabled before being added to the DBCA organisation.
+- Repository access permissions are managed via group memberships, which are managed by OIM administrators.
+- Developers are responsible for not committing sensitive information and data into hosted code repositories.
 
 GitHub provides [this list of introductory resources](https://help.github.com/articles/git-and-github-learning-resources/) for getting started with Git.
 
@@ -148,7 +153,7 @@ cd project_name
 git remote add upstream https://github.com/dbca-wa/project_name.git
 ```
 
-Do all of your work on the fork, make a bunch of commits, push frequently, etc. Once a feature is done, use the GitHub UI to create a pull request from your fork to the upstream repository, so that it may be code reviewed. Developers might wish to work on specific features or fixes in a branch and then merge that branch to the master/main branch as needed, however the specific workflow can be defined by the project owner.
+Do all of your work on the fork, make a bunch of commits, push frequently, etc. Once a feature is done, use the GitHub UI to create a pull request from your fork to the upstream repository, so that it may be code reviewed. Developers might wish to work on specific features or fixes in a branch and then merge that branch to the main branch as needed, however the specific workflow can be defined by the project owner.
 
 ## Docker
 
