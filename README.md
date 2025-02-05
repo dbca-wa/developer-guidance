@@ -12,11 +12,10 @@ Additional resource documentation pages include the following:
 
 To summarise the recommended technology stack for new web development projects:
 
-- Python - programming/scripting language
-- Django - Web application framework
-- PostgreSQL - database
-- Docker - application containerisation
-- Git - source control
+- [Python](https://www.python.org/) - programming/scripting language
+- [Django](https://www.djangoproject.com/) - Web application framework
+- [Git](https://git-scm.com/) - project code source control
+- [Docker](https://www.docker.com/) - software containerisation
 
 ## Python
 
@@ -30,29 +29,29 @@ For installation, most \*nix operating systems come with a version of Python ins
 A suggested syllabus for learning Python for the purposes of web application development is as follows:
 
 - Install Python 3.x on your PC.
-- If required, take a [crash course in the Python syntax](https://www.freecodecamp.org/news/learning-python-from-zero-to-hero-120ea540b567). This is also a good intro for Python: <https://realpython.com/python-first-steps/>
+- If required, take a [crash course in the Python syntax](https://www.freecodecamp.org/news/learning-python-from-zero-to-hero-120ea540b567).
 - For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://diveintopython3.net/), chapters 0, 1, 2, 3, 4, 7, 11 & 14 (the whole book is valuable, but these chapters will get you basically productive).
-- The Hitchhiker's Guide to Python is a well-maintained, opinionated guide of best practices for installing, configuring and using Python: <https://docs.python-guide.org>
 
-## Python environment management
+### Python environment management
 
-Once you start working on more than one project, managing separate and isolated Python environments for each one becomes a requirement. This topic is slightly "extra credit" (it's most important to get in and start learning the syntax), but it's worth learning sooner rather than later. [This is a good primer](https://realpython.com/python-virtual-environments-a-primer/) on Python virtual environments and why you need them. The specifics for how to manage Python virtual environments are very much up to individual developers, but a good starting point is as follows:
+Once you start working on more than one project, managing separate and isolated Python environments for each one becomes a requirement. This topic is slightly "extra credit" (it's most important to get in and start learning the syntax), but it's worth learning sooner rather than later. [This is a good primer](https://realpython.com/python-virtual-environments-a-primer/) on Python virtual environments and why you need them.
 
-- Use [pyenv](https://github.com/pyenv/pyenv) to install and switch between different versions on Python on a host ([installation instructions](https://github.com/pyenv/pyenv#installation)).
-- Use [Poetry](https://python-poetry.org/) to manage project dependency trees ([installation instructions](https://python-poetry.org/docs/#installation)).
+There are many different Python environment management tools on the market (pip, pip-tools, Poetry, Pipenv, etc.) and the choice always remain with individual developer, but the current recommended tool is [uv](https://docs.astral.sh/uv/). It's (very) fast, easy to use, and is standards-compliant. First steps are as follows:
 
-Another popular tool for managing Python dependencies is [pipenv](https://pipenv.pypa.io/en/latest/), as an alternative to Poetry. There is no clear market leader within this topic, and developers are encouraged to experiment and find their own best fit as they gain experience. Additional resources related to managing Python environments:
-
-- Hypermodern Python setup: <https://cjolowicz.github.io/posts/hypermodern-python-01-setup/>
-- pyenv tutorial: <https://amaral.northwestern.edu/resources/guides/pyenv-tutorial>
-- Set up an awesome Python environment: <https://towardsdatascience.com/how-to-setup-an-awesome-python-environment-for-data-science-or-anything-else-35d358cc95d5>
-- Overview of Python dependency management tools: <https://modelpredict.com/python-dependency-management-tools>
+- Install [uv](https://docs.astral.sh/uv/getting-started/installation/) on your development PC.
+- [Install a specific version of Python using uv](https://docs.astral.sh/uv/guides/install-python/).
+- [Create an isolated Python environment](https://docs.astral.sh/uv/pip/environments/) and begin experimenting with it.
 
 ## Django
 
 [Django](https://www.djangoproject.com/) is our current tool of choice for non-trivial web applications requiring a significant amount of business logic, direct manipulation of databases, and a large amount of user interaction. It is a "full stack" web framework that includes all of the components required to develop a complex web application for internal or external customers. It also boasts some of the best online documentation to be found.
 
-Examples of web applications developed using Django:
+A learning syllabus for Django is as follows:
+
+- Once you have a good understanding of Python syntax, complete the ENTIRE Django tutorial (really, the whole thing): <https://docs.djangoproject.com/en/dev/>
+- As an alternative/supplement to the Django docs tutorial, Mozilla has an excellent tutorial series for Django: <https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django>
+
+Examples of DBCA-built web applications using Django:
 
 - [Planning Referral System](https://prs.dbca.wa.gov.au) - code repository at <https://github.com/dbca-wa/prs>
 - [IBMS](https://ibms.dbca.wa.gov.au) - code repository at <https://github.com/dbca-wa/ibms>
@@ -60,63 +59,18 @@ Examples of web applications developed using Django:
 To minimise development effort, we typically take the following approach when building a new system:
 
 1. Define a good data model with constraints: [Django models](https://docs.djangoproject.com/en/dev/ref/models/fields/).
-2. Add validation for [model fields](https://docs.djangoproject.com/en/dev/ref/models/instances/#validating-objects).
-3. Use the built-in [Django admin](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) for testing and validation of the data model.
-4. Customise the Django admin for internal end users (e.g. hiding fields, add business rules, add related inlines as tables/stacked forms). This should be sufficient for a small, proficient group of users.
-5. Replace high throughput (lots of users / users with not much scope for training such as the public) interface pages with [VueJS](https://vuejs.org/) and API interactions such as [Django Rest Framework](http://www.django-rest-framework.org/) if you enjoy the pain of developing in two languages, or with Django's own class-based views for more oldschool request/response forms.
+1. Add validation for [model fields](https://docs.djangoproject.com/en/dev/ref/models/instances/#validating-objects).
+1. Use the built-in [Django admin](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) for testing and validation of the data model.
 
-An example of a web application that make heavy use of JavaScript in the UI is [ParkStay Bookings](https://parkstaybookings.dbca.wa.gov.au/map/).
+## Software development environment
 
-A suggested syllabus for learning Django is as follows:
+OIM application developers are encouraged to undertake development locally in an environment that is as close as possible to the final deployed application environment in order to reduce the incidence of "works on my machine" problems.
 
-- Once you have a good understanding of Python syntax, complete the ENTIRE Django tutorial (really, the whole thing): <https://docs.djangoproject.com/en/dev/>
-- As an alternative/supplement to the Django docs tutorial, Mozilla has an excellent tutorial series for Django: <https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django>
-
-## Docker and Kubernetes
-
-All modern web applications in the department are built as Docker images and deployed using Kubernetes. This is a whole technical speciality on its own, so we suggest that new developers not already familiar with Docker ease into it over time (concentrate initially on Python, Django and getting set up with our other collaboration tools).
-
-For the enthusiastic, here are some resources to starting learning about [Docker](/Docker.md), and an intro to Kubernetes below.
-
-### Learning & documentation
-
-Resources that are useful / relevant for internal developers to learn just enough about Kubernetes to be productive.
-
-- [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/) - Learning path from Microsoft. Pretty thorough introduction to Docker, containers and AKS in general.
-- [Kubernetes Documentation](https://kubernetes.io/docs/home/) - comprehensive, but not the best introductory learning resource. Has a pretty good set of interactive tutorials.
-
-### Other resources
-
-- [Introduction to Kustomize](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/) - Kustomize provides a solution for customizing Kubernetes resource configuration.
-- [Lens](https://docs.k8slens.dev/main/) - a nice client-side management tool for Kubernetes clusters. See [this article](https://opensource.com/article/20/7/kubernetes-lens) for an overview.
-- [Rancher Desktop](https://rancherdesktop.io/) - an open-source desktop application for Mac and Windows, providing Kubernetes and container management in a desktop installer.
-
-### kubectl references
-
-- [kubectl command reference](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
-- [Cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
-- [Conventions](https://kubernetes.io/docs/reference/kubectl/conventions/)
-
-## Development tools
+### Development tools
 
 - [Git](https://git-scm.com/) - for version control. Refer to the "Source control" section below.
 - [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install) - for developing more easily on windows.
-
-## Security awareness
-
-- [1Password](https://1password.com/) - a service for managing and sharing organisational secrets.
-- Keep sensitive information out of project repositories - don't commit user credentials, passwords, access keys or database dumps to the repository. Get in the habit of creating a `.gitignore` file and adding relevant file patterns to it in order to reduce the chance of this happening.
-- ISAP - the department runs an Information Security Awareness Program training course that is compulsory. Even if the information seems basic, try to internalise the content and cultivate a security mindset.
-- In the case of credentials or keys, the recommended approach is to make your settings/config code read these pieces of information in via **environment variables**.
-
-## Extra credit
-
-- Set up an Ubuntu-based development environment and get to mastering the Linux command line, if you don't already use it. This is a valuable skillset for any IT professional; your career will thank you. In a Windows 10 environment, we have found it to be a good experience to [set up an Ubuntu development environment using WSL](https://docs.microsoft.com/en-us/windows/wsl/setup/environment).
-- Undertake a small development project, ideally in collaboration with another new team member (talk to a senior team member for a project specification).
-
-## Development environment
-
-OIM application developers are encouraged to undertake development locally in an environment that is as close as possible to the final deployed application environment in order to reduce the incidence of "works on my machine" problems.
+- [Visual Studio Code](https://code.visualstudio.com/) - Microsoft's development IDE is freely available, and is a good choice for many developers.
 
 ### Linux
 
@@ -139,9 +93,13 @@ Failing that, there's the option of using an emulator like VirtualBox to run a l
 
 Apple includes a lot of UNIXy tools in the standard OS X environment, but isn't very prompt in keeping the software up to date. You may have some luck using [Homebrew](https://brew.sh/), which is styled to be like a Linux package manager. See <https://hackercodex.com/guide/mac-development-configuration/>
 
-## Source control (Git)
+### Software development best practices
 
-Git is a free and open source version control system. Learning to use Git is non-trivial and can be intimidating. However, it is the most widely-used VCS in the world therefore learning to use it will be a good investment of time for any developer.
+The following ebook is a well-regarded and very readable collection of advice related to software development: [Andrew Hunt, David Thomas - The Pragmatic Programmer - your journey to mastery](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
+
+## Git
+
+[Git](https://git-scm.com/) is a free and open source version control system. Learning to use Git is non-trivial and can be intimidating. However, it is the most widely-used VCS in the world therefore learning to use it will be a good investment of time for any developer.
 
 All public DBCA source code repositories are located at the [department's GitHub account](https://github.com/dbca-wa).
 
@@ -165,18 +123,18 @@ A helpful graphic demonstrating the Git commands to move a repository state betw
 Below are some additional resources to assist with learning Git:
 
 - [Git tutorials](https://www.atlassian.com/git/tutorials) - a good set of tutorials about Git functions by Atlassian.
-- [Git cheatsheets](https://github.github.com/training-kit/) - reference sheets covering essential Git commands.
+- [Git cheatsheets](https://training.github.com/) - reference sheets covering essential Git commands.
 - [Git Immersion](http://gitimmersion.com/) - a guided tour through using Git via a series of lessons.
 - [Learn Git branching](https://learngitbranching.js.org/) - learn the workflow of branch and merging at the CLI, in your browser.
 - [Awesome Git](https://github.com/dictcp/awesome-git) - a curated list of resources about Git.
 
 ### Working on a repository
 
-The high-level expectations for source code management are explained in the [ACSC guidelines for Software Development](https://www.cyber.gov.au/acsc/view-all-content/advice/guidelines-software-development). For most multi-contributor projects we use [GitHub pull requests](https://guides.github.com/activities/forking/#making-a-pull-request) as the workflow for contributions/code review.
+The high-level expectations for source code management are explained in the [ASD guidelines for Software Development](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/ism/cyber-security-guidelines/guidelines-software-development). For most multi-contributor projects we use [GitHub pull requests](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project#making-a-pull) as the workflow for contributions/code review.
 
 We recommend the following steps for getting started with a code repository:
 
-- In the GitHub UI, [fork the main repository](https://help.github.com/articles/fork-a-repo/) to your own account.
+- In the GitHub UI, [fork the main repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) to your own account.
 - Add your fork of the repository as the origin
 
 ```bash
@@ -192,6 +150,18 @@ git remote add upstream https://github.com/dbca-wa/project_name.git
 
 Do all of your work on the fork, make a bunch of commits, push frequently, etc. Once a feature is done, use the GitHub UI to create a pull request from your fork to the upstream repository, so that it may be code reviewed. Developers might wish to work on specific features or fixes in a branch and then merge that branch to the master/main branch as needed, however the specific workflow can be defined by the project owner.
 
-## Software development best practices
+## Docker
 
-The following ebook is a well-regarded and very readable collection of advice related to software development: [Andrew Hunt, David Thomas - The Pragmatic Programmer - your journey to mastery](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
+All modern web applications in the department are built as Docker images and deployed using [Kubernetes](https://kubernetes.io/). This is a whole technical speciality on its own, so we suggest that new developers not already familiar with Docker ease into it over time (concentrate initially on Python, Django and getting set up with collaboration tools).
+
+For the enthusiastic, there are some resources to start learning about [Docker](/Docker.md) below.
+
+- [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/) - Learning path from Microsoft. Pretty thorough introduction to Docker, containers and AKS in general.
+- [Awesome Docker](https://github.com/veggiemonk/awesome-docker) - a curated list of resources related to Docker.
+
+## Security awareness
+
+- [1Password](https://1password.com/) - a service for managing and sharing organisational secrets.
+- Keep sensitive information out of project repositories - don't commit user credentials, passwords, access keys or database dumps to the repository. Get in the habit of creating a `.gitignore` file and adding relevant file patterns to it in order to reduce the chance of this happening.
+- ISAP - the department runs an Information Security Awareness Program training course that is compulsory. Even if the information seems basic, try to internalise the content and cultivate a security mindset.
+- In the case of credentials or keys, the recommended approach is to make your settings/config code read these pieces of information in via **environment variables**.

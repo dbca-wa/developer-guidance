@@ -262,7 +262,7 @@ Compose is a tool for defining and running multi-container Docker applications: 
 Compose is configured using YML-formatted files. A multi-container service Compose file example:
 
 ```yml
-version: "3"
+version: '3'
 
 services:
   pgdb:
@@ -274,7 +274,7 @@ services:
   drupal:
     image: drupal
     ports:
-      - "8082:80"
+      - '8082:80'
     volumes:
       - drupal-modules:/var/www/html/modules
       - drupal-profiles:/var/www/html/profiles
@@ -333,3 +333,15 @@ There are a couple of steps required for a developer to use the GitHub Container
 1. The developer needs to create a Personal Access Token ([instructions here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)) and use that as the password to authenticate with the registry (i.e. `docker login ghcr.io -u <USERNAME>`).
 2. The uploaded image needs to be linked to a repository ([instructions here](https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package)), either manually in GitHub or using a LABEL in the Dockerfile.
 3. Permission settings for Github packages need to be set IN ADDITION to permissions on the linked repository. Having linked a package to a repo and pushed an image, open the repo in GitHub, click the container package on the right-hand side, then click "Package settings" on the right hand side again. Set the required Inherited Access settings on this page.
+
+## Other resources
+
+- [Introduction to Kustomize](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/) - Kustomize provides a solution for customizing Kubernetes resource configuration.
+- [Lens](https://docs.k8slens.dev/main/) - a nice client-side management tool for Kubernetes clusters. See [this article](https://opensource.com/article/20/7/kubernetes-lens) for an overview.
+- [Rancher Desktop](https://rancherdesktop.io/) - an open-source desktop application for Mac and Windows, providing Kubernetes and container management in a desktop installer.
+
+## kubectl references
+
+- [kubectl command reference](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
+- [Cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [Conventions](https://kubernetes.io/docs/reference/kubectl/conventions/)
