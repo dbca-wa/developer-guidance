@@ -132,6 +132,7 @@ Below are some additional resources to assist with learning Git:
 - [Git Immersion](http://gitimmersion.com/) - a guided tour through using Git via a series of lessons.
 - [Learn Git branching](https://learngitbranching.js.org/) - learn the workflow of branch and merging at the CLI, in your browser.
 - [Awesome Git](https://github.com/dictcp/awesome-git) - a curated list of resources about Git.
+- [Beej's Guide to Git](https://beej.us/guide/bggit/html/split/index.html) - if you wanted to read a thorough, clear, engaging book-length guide to all aspects of using Git, this is the one.
 
 ### Working on a repository
 
