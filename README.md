@@ -34,9 +34,9 @@ A suggested syllabus for learning Python for the purposes of web application dev
 
 ### Python environment management
 
-Once you start working on more than one project, managing separate and isolated Python environments for each one becomes a requirement. This topic is slightly "extra credit" (it's most important to get in and start learning the syntax), but it's worth learning sooner rather than later. [This is a good primer](https://realpython.com/python-virtual-environments-a-primer/) on Python virtual environments and why you need them.
+Once you start working on more than one project, managing separate and isolated Python environments for each one becomes a requirement. [This is a good primer](https://realpython.com/python-virtual-environments-a-primer/) on Python virtual environments and why you need them.
 
-There are many different Python environment management tools on the market (pip, pip-tools, Poetry, Pipenv, etc.) and the choice always remain with individual developer, but the current recommended tool is [uv](https://docs.astral.sh/uv/). It's (very) fast, easy to use, and is standards-compliant. First steps are as follows:
+There are many different Python environment management tools on the market (pip, pip-tools, Poetry, Pipenv, etc.) and the choice always remain with individual developer, but the current recommended tool is [uv](https://docs.astral.sh/uv/). It's fast, easy to use, and is Python-standards-compliant. First steps are as follows:
 
 - Install [uv](https://docs.astral.sh/uv/getting-started/installation/) on your development PC.
 - [Install a specific version of Python using uv](https://docs.astral.sh/uv/guides/install-python/).
@@ -44,7 +44,7 @@ There are many different Python environment management tools on the market (pip,
 
 ## Django
 
-[Django](https://www.djangoproject.com/) is our current tool of choice for non-trivial web applications requiring a significant amount of business logic, direct manipulation of databases, and a large amount of user interaction. It is a "full stack" web framework that includes all of the components required to develop a complex web application for internal or external customers. It also boasts some of the best online documentation to be found.
+[Django](https://www.djangoproject.com/) is our recommended framework of choice for non-trivial web applications requiring a significant amount of business logic, direct manipulation of databases, and a large amount of user interaction. It is a "full stack" web framework that includes all of the components required to develop a complex web application for internal or external customers. It also boasts some of the best online documentation to be found.
 
 A learning syllabus for Django is as follows:
 
@@ -64,7 +64,7 @@ To minimise development effort, we typically take the following approach when bu
 
 ## Software development environment
 
-OIM application developers are encouraged to undertake development locally in an environment that is as close as possible to the final deployed application environment in order to reduce the incidence of "works on my machine" problems.
+Software developers are encouraged to undertake development locally in an environment that is as close as possible to the final deployed application environment in order to reduce the incidence of "works on my machine" problems.
 
 ### Development tools
 
@@ -74,7 +74,7 @@ OIM application developers are encouraged to undertake development locally in an
 
 ### Linux
 
-For the best development experience, OIM recommends developers install a variant of Linux on their workstation, either outright or in a dual-boot arrangement with Windows. We've found modern Ubuntu to have a good user experience plus up-to-date packages, but the choice of distribution can be entirely up to user preference.
+For the best development experience, OIM recommends developers install a variant of Linux on their workstation. We've found modern Ubuntu to have a good user experience, up-to-date packages and voluminous online documentation, but the choice of distribution is entirely up to user preference.
 
 Some good additional resources from the internet are as follows:
 
@@ -83,11 +83,11 @@ Some good additional resources from the internet are as follows:
 
 ### Windows
 
-Microsoft has made it surprisingly easy to run a Linux environment under Windows 10 and newer. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/install) is a good alternative to a full VM, and is a lot more pleasant for Python development than using the Win32 ported equivalent of the tools. There are a few cases where support is less than optimal (e.g. some complex filesystem interactions fail, meaning you can't run PostgreSQL natively), but for basic development it provides a good alternative or transitional step to a full UNIX environment.
+Microsoft has made it surprisingly easy to run a Linux environment under Windows 10 and newer. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/install) is a better alternative to a virtual machine as it runs natively on the local hardware, meaning that performance rarely an issue. Installed WSL environments also run directly on the local filesystem, so all local files can be read and copied as required. You can happily run Virtual Studio Code in Windows with a project in a WSL environment for development, while serving and building the project from WSL.
 
 A decent guide for installing Docker inside the Ubuntu WSL is [here](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7) (includes instructions for installing the Azure CLI and dotnet core).
 
-Failing that, there's the option of using an emulator like VirtualBox to run a local Linux VM for development purposes but this can consume a fair amount of your computer's resources.
+Aside from WSL, there's the option of using an emulator like VirtualBox to run a local Linux VM for development purposes. This is no longer a recommended approach.
 
 ### Mac OS X
 
