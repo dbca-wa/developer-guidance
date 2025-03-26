@@ -9,9 +9,46 @@ Additional resource documentation pages include the following:
 - [Auth2](/developer-guidance/Auth2)
 - [Git](/developer-guidance/Git)
 
+## Software development environment
+
+DBCA software developers are encouraged to undertake development locally in an environment that is as close as possible to the final deployed application environment in order to reduce the incidence of "works on my machine" problems.
+
+The department's standard operating environment (SOE) is currently Microsoft Windows 10, so the majority of DBCA developers are assumed to be carrying out development within this operating system and the following advice is written with this in mind. The one "essential" development tool is **[Git](https://git-scm.com/)**, which is our designated version control software solution.
+Refer to the [Git](/developer-guidance/Git) page for more information about installing and using Git.
+
+The software development IDE is up to the individual developer. Microsoft's development IDE [Visual Studio Code](https://code.visualstudio.com/) is a good choice. It is free to use, well documented, well-supported and highly configurable. It also plays extremely well with WSL (see below) via an extension.
+
+### Developing in Linux - Windows Subsystem for Linux (WSL)
+
+Many of the department's bespoke systems are built and deployed against a Linux environment, therefore it is highly recommended for developers to carry out development locally within a similar environment.
+
+Microsoft has made it surprisingly easy to run a Linux environment under Windows 10 and newer. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/about) is a modern alternative to a virtual machine as it runs natively on the local hardware, meaning that performance is rarely an issue. Installed WSL environments also run directly on the local filesystem, so all local files can be read and copied as required. You can happily run Virtual Studio Code in Windows with a project in a WSL environment for development, via the optional WSL extension.
+
+For a good experience, OIM recommends that developers utilise [WSL](https://learn.microsoft.com/en-gb/windows/wsl/install) to install and run a recent (LTS) version of Ubuntu Server. This OS is free, has excellent technical support, up-to-date packages, and (importantly) has a vast corpus of documentation available. Some good resources for developers new to working in a Linux command-line environment are as follows:
+
+- [Linux Tutorial for Beginners](https://ryanstutorials.net/linuxtutorial/)
+- [Linux Command Reference](https://perpetualpc.net/srtd_commands_rev.html)
+
+Aside from WSL, there's the option of using an emulator like VirtualBox to run a local Linux VM for development purposes. This is no longer a recommended approach.
+
+### Docker
+
+The department's preferred method of serving bespoke web services is as containerised [Docker](https://www.docker.com/) images and deployed using Kubernetes. Therefore, is it useful for developers to install and run Docker locally. A sensible approach is to install and run Docker inside your WSL development environment. A guide for installing Docker inside the Ubuntu WSL is available [here](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7) (includes instructions for installing the Azure CLI and dotnet core).
+
+Some resources to start learning about [Docker](/Docker.md) are listed below.
+
+- [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/) - Learning path from Microsoft. Pretty thorough introduction to Docker, containers and AKS in general.
+- [Awesome Docker](https://github.com/veggiemonk/awesome-docker) - a curated list of resources related to Docker.
+
+Additional developer guidance regarding [Docker](/developer-guidance/Docker) is also available.
+
+### Software development best practices
+
+The following ebook is a well-regarded and very readable collection of advice related to software development: [Andrew Hunt, David Thomas - The Pragmatic Programmer - your journey to mastery](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
+
 ## Web development stack
 
-To summarise the recommended technology stack for new web development projects:
+To summarise the OIM-recommended technology stack for new web development projects:
 
 - [Python](https://www.python.org/) - programming/scripting language
 - [Django](https://www.djangoproject.com/) - Web application framework
@@ -62,42 +99,6 @@ To minimise development effort, we typically take the following approach when bu
 1. Define a good data model with constraints: [Django models](https://docs.djangoproject.com/en/dev/ref/models/fields/).
 1. Add validation for [model fields](https://docs.djangoproject.com/en/dev/ref/models/instances/#validating-objects).
 1. Use the built-in [Django admin](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) for testing and validation of the data model.
-
-## Software development environment
-
-DBCA software developers are encouraged to undertake development locally in an environment that is as close as possible to the final deployed application environment in order to reduce the incidence of "works on my machine" problems.
-
-The department's standard operating environment (SOE) is currently Microsoft Windows 10, so the majority of DBCA developers are assumed to be carrying out development within this operating system and the following advice is written with this in mind. The one "essential" development tool is [Git](https://git-scm.com/), which is our designated version control software solution. Refer to the **Git** section below for additional information.
-
-The software development IDE is up to the individual developer. Microsoft's development IDE [Visual Studio Code](https://code.visualstudio.com/) is a good choice. It is free to use, well documented, well-supported and highly configurable.
-
-### Developing in Linux - Windows Subsystem for Linux (WSL)
-
-Many of the department's bespoke systems are built and deployed against a Linux environment, therefore it is highly recommended for developers to carry out development locally within a similar environment.
-
-Microsoft has made it surprisingly easy to run a Linux environment under Windows 10 and newer. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/install) is a modern alternative to a virtual machine as it runs natively on the local hardware, meaning that performance rarely an issue. Installed WSL environments also run directly on the local filesystem, so all local files can be read and copied as required. You can happily run Virtual Studio Code in Windows with a project in a WSL environment for development, while serving and building the project from WSL.
-
-For a good experience, OIM recommends that developers utilise WSL to install and run a recent (LTS) version of Ubuntu Server. This OS is free, has excellent technical support, up-to-date packages, and (importantly) has a vast corpus of documentation available. Some good resources for developers new to working in a Linux command-line environment are as follows:
-
-- [Linux Tutorial for Beginners](https://ryanstutorials.net/linuxtutorial/)
-- [Linux Command Reference](https://perpetualpc.net/srtd_commands_rev.html)
-
-Aside from WSL, there's the option of using an emulator like VirtualBox to run a local Linux VM for development purposes. This is no longer a recommended approach.
-
-### Docker
-
-The department's preferred method of serving bespoke web services is as containerised [Docker](https://www.docker.com/) images and deployed using Kubernetes. Therefore, is it useful for developers to install and run Docker locally. A guide for installing Docker inside the Ubuntu WSL is available [here](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7) (includes instructions for installing the Azure CLI and dotnet core).
-
-Some resources to start learning about [Docker](/Docker.md) are listed below.
-
-- [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/) - Learning path from Microsoft. Pretty thorough introduction to Docker, containers and AKS in general.
-- [Awesome Docker](https://github.com/veggiemonk/awesome-docker) - a curated list of resources related to Docker.
-
-Additional developer guidance regarding [Docker](/developer-guidance/Docker) is also available.
-
-### Software development best practices
-
-The following ebook is a well-regarded and very readable collection of advice related to software development: [Andrew Hunt, David Thomas - The Pragmatic Programmer - your journey to mastery](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
 
 ## Information security
 
