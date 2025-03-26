@@ -4,17 +4,17 @@ This page is a WiP to collect and record examples and templates for development 
 
 Useful references:
 
-- Refer to <https://portal.azure.com/#view/Microsoft_Azure_Security/InventoryBlade> to check and apply Azure recommendations for AKS resources
-- <https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html>
-- <https://blog.gitguardian.com/how-to-improve-your-docker-containers-security-cheat-sheet/>
+- Docker security cheatsheet: <https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html>
+- Docker container security best practices: <https://blog.gitguardian.com/how-to-improve-your-docker-containers-security-cheat-sheet/>
 - Storage considerations for AKS: <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/app-platform/aks/storage>
 
 ## General design principles
 
-- Architect application workloads to eliminate local state data, allowing Kubernetes to efficiently migrate Pods between available nodes.
+- Build containerised applications to run with the least amount of privilege required to function, and to not have administrative rights to the container in which they run (i.e. no local root privilege).
+- Architect application workloads to eliminate local state data as much as possible, allowing Kubernetes to efficiently migrate pods between available nodes.
 - Minimise installation of unnecessary executables and software within running container images, to improve security by reducing the attack surface and to reduce the size of images.
 - Ensure that containerised workloads have a well-defined single purpose, i.e. do not deploy resources which carry out multiple functions (e.g. a web-server that also carries out periodic jobs).
-- Make use of health probes (startup/liveness/readiness mechanisms) so that Kubernetes can detect whether an application is up, healthy and ready to serve requests.
+- Make use of health probes (startup/liveness/readiness mechanisms) so that Kubernetes can detect whether an application is started, healthy and ready to serve requests.
 
 ## Pods run with a security context that disallows privilege escalation
 
