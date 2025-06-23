@@ -56,15 +56,15 @@ A Docker registry is a storage and content delivery system for named Docker imag
 Pull an image from the online registry to local storage:
 
 ```bash
-docker pull <IMAGE NAME>
+docker pull IMAGE
 ```
 
 Basic run commands:
 
 ```bash
-docker container run <IMAGE>
+docker container run IMAGE
 docker container run --publish 80:80 nginx
-docker container run --detach --publish 8281:8080 --env DATABASE_URL=postgres://username:PASSWORD@hostname.lan.fyi/database_name --env DEBUG=True dbcawa/prs:latest
+docker container run --detach --publish 8281:8080 --env DATABASE_URL=postgres://username:PASSWORD@hostname/database_name --env DEBUG=True dbcawa/prs:latest
 ```
 
 Breakdown:
@@ -82,7 +82,7 @@ docker container run --publish 80:80 --detach nginx
 Same as above, but detached. Stop a container:
 
 ```bash
-docker container stop <CONTAINER ID>
+docker container stop CONTAINER_ID
 ```
 
 List containers:
@@ -101,18 +101,18 @@ docker container run --publish 80:80 --detach --name webhost nginx
 View logs, use top and stop it:
 
 ```bash
-docker container logs <NAME>
-docker container top <NAME>
-docker container inspect <NAME>
-docker container stop <NAME>
+docker container logs NAME
+docker container top NAME
+docker container inspect NAME
+docker container stop NAME
 ```
 
 Remove containers:
 
 ```bash
 docker container ls -a
-docker container rm <ID1> <ID2>
-docker container rm -f <ID OF RUNNING CONTAINER>
+docker container rm ID1 ID2
+docker container rm -f ID
 ```
 
 Manage containers assignment (command list):
@@ -124,16 +124,13 @@ docker container run --publish 3306:3306 -d -n mysql_db -e MYSQL_RANDOM_ROOT_PAS
 docker container run --publish 3306:3306 -d --name mysql_db -e MYSQL_RANDOM_ROOT_PASSWORD=true
 docker container run --publish 3306:3306 --detach --name mysql_db -e MYSQL_RANDOM_ROOT_PASSWORD=true mysql
 docker image ls
-docker container ls
-docker container rm -f 53b 13f 4c3
 docker container ls -a
 ```
 
 Viewing information about running containers:
 
 ```bash
-docker container top <NAME>
-docker container inspect <NAME>
+docker container top NAME
 docker container stats
 ```
 
@@ -143,14 +140,14 @@ Getting inside a running container:
 # Start a container interactively and run sh in it:
 docker container start -it alpine sh
 # Run a bash shell on a running container:
-docker container exec -it <NAME> bash
+docker container exec -it NAME /bin/bash
 ```
 
 Misc. command dump:
 
 ```bash
 # Display IP address of a running container:
-docker container inspect --format '{{ .NetworkSettings.IPAddress }}' <NAME>
+docker container inspect --format '{{ .NetworkSettings.IPAddress }}' NAME
 # Remove all exited containers:
 docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm
 ```
@@ -159,10 +156,10 @@ Docker container networking: <https://docs.docker.com/network/>
 
 ```bash
 docker network ls
-docker network inspect <NAME>
-docker network create <NAME>
-docker network connect <NETWORK> <CONTAINER>
-docker network disconnect <NETWORK> <CONTAINER>
+docker network inspect NAME
+docker network create NAME
+docker network connect NETWORK CONTAINER
+docker network disconnect NETWORK CONTAINER
 ```
 
 ## Container lifetime & persistent data
@@ -175,7 +172,7 @@ Define a named volume when starting a container:
 
 ```bash
 docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
-docker container run -d --name pgdb -e POSTGRES_PASSWORD=pass -p 5433:5432 -v pgdb:/var/lib/postgresql/data postgres:10-alpine
+docker container run -d --name pgdb -e POSTGRES_PASSWORD=pass -p 5432:5432 -v pgdb:/var/lib/postgresql/data postgres:10-alpine
 ```
 
 Bind mounting maps a host file/dir to a container file/dir. Can't use this in a Dockerfile, must be at container run. E.g.:
@@ -214,9 +211,9 @@ Service commands:
 ```bash
 docker service create alpine ping 1.1.1.1
 docker service ls
-docker service update <NAME> --replicas 3
+docker service update NAME --replicas 3
 docker service ls
-docker service rm <NAME>
+docker service rm NAME
 ```
 
 Swarm commands:
@@ -225,17 +222,17 @@ Swarm commands:
 docker node ls
 docker swarm join-token [manager|worker]
 # Update a node to a manager:
-docker node update --role manager <HOSTNAME>
+docker node update --role manager HOSTNAME
 # Change a node to a worker:
-docker node update --role worker <HOSTNAME>
+docker node update --role worker HOSTNAME
 # Deploy a service to the swarm:
 docker service create --replicas 3 alpine ping 1.1.1.1
 # List services running on a node:
-docker node ps <NODE>
+docker node ps NODE
 # List nodes running a service;
-docker service ps <SERVICE>
+docker service ps SERVICE
 # Inspect service details:
-docker service inspect --pretty <SERVICE>
+docker service inspect --pretty SERVICE
 ```
 
 ## Service logs
@@ -244,15 +241,13 @@ Only works for logs that are not shipped to another service (via --log-driver). 
 
 ```bash
 # Return all logs for a service:
-docker service logs <SERVICE>
-# Return all logs for a task:
-docker service logs <TASK ID>
+docker service logs SERVICE
 # Return unformatted logs with no truncing:
-docker service logs --raw --no-trunc <SERVICE/TASK>
+docker service logs --raw --no-trunc SERVICE
 # Return that last 50 logs and follow:
-docker service logs --tail 50 --follow <SERVICE/TASK>
+docker service logs --tail 50 --follow SERVICE
 # To pipe service logs output to grep, use 2>%1
-docker service logs --tail 500 <SERVICE> 2>&1 | grep "Some search text"
+docker service logs --tail 500 SERVICE 2>&1 | grep "Some search text"
 ```
 
 ## Docker Compose
@@ -297,28 +292,22 @@ Stacks are another abstraction in Docker Swarm. Stacks accept Compose files as t
 
 ```bash
 docker stack ls
-docker stack services <STACK>  # Lists the current services for a stack
-docker stack ps <STACK>  # Shows the tasks (running or not) for a stack
+docker stack services STACK  # Lists the current services for a stack
+docker stack ps STACK  # Shows the tasks (running or not) for a stack
 ```
 
 ## A basic Docker image recipe
 
 Basic steps are as follows:
 
-- Log onto a Docker manager server (e.g. KENS-MATE-001)
+- Log onto a Docker manager server
 - Pull the git repo into a temporary location
 - Ensure requirements are pinned
 - Create/edit the Dockerfile as required
-- Build the image (cd to root git repo directory and run docker image build -t DOCKER_REPO:TAG .)
-- Locally test run the image (docker container run --publish LOCAL_SERVER_PORT:INTERNAL_APPLICATION_PORT --env DEBUG=True DOCKER_REPO:TAG)
-- You can run docker container exec -it CONTAINER_ID bash to get into the running bash for the container
-- Once successfully running locally, push the image to Docker Hub (docker image push DOCKER_REPO:TAG, push once without tag for latest, and once with tag for a tagged release, will need to do docker login to push), see below
-- Log onto a Docker runtime server as root (e.g. KENS-DOCKER-001, AWS-DOCKER-001)
-- The root home will have a composefiles folder connected to a local Gitea repo
-- Create/edit the composefile for your app (you can put non-prod and prod environments in this file, using latest for non-prod or tagged release for prod)
-- Deploy the stack using the composefile (e.g. docker stack deploy -c COMPOSEFILENAME.yml SERVICE_NAME)
-- Check using docker SERVICE|CONTAINER|IMAGE> ls
-- Once successfully running, commit and push the composefiles repo
+- Build the image (cd to root git repo directory and run `docker image build -t DOCKER_REPO:TAG .`)
+- Locally test run the image (`docker container run --publish LOCAL_SERVER_PORT:INTERNAL_APPLICATION_PORT --env DEBUG=True DOCKER_REPO:TAG`)
+- You can run `docker container exec -it CONTAINER_ID /bin/bash` to get into the running bash for the container
+- Once successfully running locally, push the image to Docker Hub (`docker image push DOCKER_REPO:TAG`, push once without tag for latest, and once with tag for a tagged release)
 
 Best practices for building Docker images:
 
@@ -337,7 +326,6 @@ There are a couple of steps required for a developer to use the GitHub Container
 ## Other resources
 
 - [Introduction to Kustomize](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/) - Kustomize provides a solution for customizing Kubernetes resource configuration.
-- [Lens](https://docs.k8slens.dev/main/) - a nice client-side management tool for Kubernetes clusters. See [this article](https://opensource.com/article/20/7/kubernetes-lens) for an overview.
 - [Rancher Desktop](https://rancherdesktop.io/) - an open-source desktop application for Mac and Windows, providing Kubernetes and container management in a desktop installer.
 
 ## kubectl references
