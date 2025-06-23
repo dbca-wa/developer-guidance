@@ -35,12 +35,13 @@ Aside from WSL, there's the option of using an emulator like VirtualBox to run a
 
 The department's preferred method of serving bespoke web services is as containerised [Docker](https://www.docker.com/) images and deployed using Kubernetes. Therefore, is it useful for developers to install and run Docker locally. A sensible approach is to install and run Docker inside your WSL development environment. A guide for installing Docker inside the Ubuntu WSL is available [here](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7) (includes instructions for installing the Azure CLI and dotnet core).
 
-Some resources to start learning about [Docker](/Docker.md) are listed below.
+We maintain a document that may serve as an introduction for developers to start learning about Docker here: [Docker](/Docker.md).
 
-- [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/) - Learning path from Microsoft. Pretty thorough introduction to Docker, containers and AKS in general.
+Additional external resources for learning about Kubernetes are listed below:
+
+- [Kubernetes Crash Course](https://canine.gitbook.io/canine.sh/technical-details/kubernetes-crash-course/introduction) - an extremely approachable and clear introduction to Kubernetes concepts.
+- [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/) - learning path from Microsoft. Pretty thorough introduction to Docker, containers and AKS in general.
 - [Awesome Docker](https://github.com/veggiemonk/awesome-docker) - a curated list of resources related to Docker.
-
-Additional developer guidance regarding [Docker](/developer-guidance/Docker) is also available.
 
 ### Software development best practices
 
