@@ -4,10 +4,11 @@ This is a resource for OIM developers new to DBCA, to get to a basic standard of
 
 Additional resource documentation pages include the following:
 
-- [DevOps best practices](/developer-guidance/DevOps)
-- [Docker](/developer-guidance/Docker)
-- [Auth2](/developer-guidance/Auth2)
-- [Git](/developer-guidance/Git)
+-   [DevOps best practices](/developer-guidance/DevOps)
+-   [Docker](/developer-guidance/Docker)
+-   [Rancher](/developer-guidance/Rancher)
+-   [Auth2](/developer-guidance/Auth2)
+-   [Git](/developer-guidance/Git)
 
 ## Software development environment
 
@@ -26,8 +27,8 @@ Microsoft has made it surprisingly easy to run a Linux environment under Windows
 
 For a good experience, OIM recommends that developers utilise [WSL](https://learn.microsoft.com/en-gb/windows/wsl/install) to install and run a recent (LTS) version of Ubuntu Server. This OS is free, has excellent technical support, up-to-date packages, and (importantly) has a vast corpus of documentation available. Some good resources for developers new to working in a Linux command-line environment are as follows:
 
-- [Linux Tutorial for Beginners](https://ryanstutorials.net/linuxtutorial/)
-- [Linux Command Reference](https://perpetualpc.net/srtd_commands_rev.html)
+-   [Linux Tutorial for Beginners](https://ryanstutorials.net/linuxtutorial/)
+-   [Linux Command Reference](https://perpetualpc.net/srtd_commands_rev.html)
 
 Aside from WSL, there's the option of using an emulator like VirtualBox to run a local Linux VM for development purposes. This is no longer a recommended approach.
 
@@ -39,9 +40,9 @@ We maintain a document that may serve as an introduction for developers to start
 
 Additional external resources for learning about Kubernetes are listed below:
 
-- [Kubernetes Crash Course](https://canine.gitbook.io/canine.sh/technical-details/kubernetes-crash-course/introduction) - an extremely approachable and clear introduction to Kubernetes concepts.
-- [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/) - learning path from Microsoft. Pretty thorough introduction to Docker, containers and AKS in general.
-- [Awesome Docker](https://github.com/veggiemonk/awesome-docker) - a curated list of resources related to Docker.
+-   [Kubernetes Crash Course](https://canine.gitbook.io/canine.sh/technical-details/kubernetes-crash-course/introduction) - an extremely approachable and clear introduction to Kubernetes concepts.
+-   [Introduction to Kubernetes on Azure](https://docs.microsoft.com/en-us/learn/paths/intro-to-kubernetes-on-azure/) - learning path from Microsoft. Pretty thorough introduction to Docker, containers and AKS in general.
+-   [Awesome Docker](https://github.com/veggiemonk/awesome-docker) - a curated list of resources related to Docker.
 
 ### Software development best practices
 
@@ -51,25 +52,25 @@ The following ebook is a well-regarded and very readable collection of advice re
 
 To summarise the OIM-recommended technology stack for new web development projects:
 
-- [Python](https://www.python.org/) - programming/scripting language
-- [Django](https://www.djangoproject.com/) - Web application framework
-- [Git](https://git-scm.com/) - project code source control
-- [Docker](https://www.docker.com/) - software containerisation
+-   [Python](https://www.python.org/) - programming/scripting language
+-   [Django](https://www.djangoproject.com/) - Web application framework
+-   [Git](https://git-scm.com/) - project code source control
+-   [Docker](https://www.docker.com/) - software containerisation
 
 ## Python
 
 [Python](https://www.python.org/doc/essays/blurb/) is a general purpose programming language which is dynamically typed, interpreted, and known for its easy readability. General principles to be aware of when undertaking development of applications using Python:
 
-- Python 2.x/3.x - New projects should _always_ be developed against a recent version of Python 3. Notwithstanding the similarities, Python 2 is no longer maintained for the purposes of features or security.
-- Correct tool for the job - developers should be mindful of using Python where its strengths are greatest (rapid prototyping, versatility, portability, maintainability) versus other tools that may have advantages (SQL for database queries, command-line tools for file/text handling, JavaScript for DOM manipulation, etc.)
+-   Python 2.x/3.x - New projects should _always_ be developed against a recent version of Python 3. Notwithstanding the similarities, Python 2 is no longer maintained for the purposes of features or security.
+-   Correct tool for the job - developers should be mindful of using Python where its strengths are greatest (rapid prototyping, versatility, portability, maintainability) versus other tools that may have advantages (SQL for database queries, command-line tools for file/text handling, JavaScript for DOM manipulation, etc.)
 
 For installation, most \*nix operating systems come with a version of Python installed which will probably be sufficient for learning. For usage instructions, see [this page](https://docs.python.org/3/using/index.html). For installation on Windows, see [this page](https://docs.python.org/3/using/windows.html).
 
 A suggested syllabus for learning Python for the purposes of web application development is as follows:
 
-- Install Python 3.x on your PC.
-- If required, take a [crash course in the Python syntax](https://www.freecodecamp.org/news/learning-python-from-zero-to-hero-120ea540b567).
-- For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://diveintopython3.net/), chapters 0, 1, 2, 3, 4, 7, 11 & 14 (the whole book is valuable, but these chapters will get you basically productive).
+-   Install Python 3.x on your PC.
+-   If required, take a [crash course in the Python syntax](https://www.freecodecamp.org/news/learning-python-from-zero-to-hero-120ea540b567).
+-   For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://diveintopython3.net/), chapters 0, 1, 2, 3, 4, 7, 11 & 14 (the whole book is valuable, but these chapters will get you basically productive).
 
 ### Python environment management
 
@@ -77,9 +78,9 @@ Once you start working on more than one project, managing separate and isolated 
 
 There are many different Python environment management tools on the market (pip, pip-tools, Poetry, Pipenv, etc.) and the choice always remain with individual developer, but the current recommended tool is [uv](https://docs.astral.sh/uv/). It's fast, easy to use, and is Python-standards-compliant. First steps are as follows:
 
-- Install [uv](https://docs.astral.sh/uv/getting-started/installation/) on your development PC.
-- [Install a specific version of Python using uv](https://docs.astral.sh/uv/guides/install-python/).
-- [Create an isolated Python environment](https://docs.astral.sh/uv/pip/environments/) and begin experimenting with it.
+-   Install [uv](https://docs.astral.sh/uv/getting-started/installation/) on your development PC.
+-   [Install a specific version of Python using uv](https://docs.astral.sh/uv/guides/install-python/).
+-   [Create an isolated Python environment](https://docs.astral.sh/uv/pip/environments/) and begin experimenting with it.
 
 ## Django
 
@@ -87,13 +88,13 @@ There are many different Python environment management tools on the market (pip,
 
 A learning syllabus for Django is as follows:
 
-- Once you have a good understanding of Python syntax, complete the ENTIRE Django tutorial (really, the whole thing): <https://docs.djangoproject.com/en/dev/>
-- As an alternative/supplement to the Django docs tutorial, Mozilla has an excellent tutorial series for Django: <https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django>
+-   Once you have a good understanding of Python syntax, complete the ENTIRE Django tutorial (really, the whole thing): <https://docs.djangoproject.com/en/dev/>
+-   As an alternative/supplement to the Django docs tutorial, Mozilla has an excellent tutorial series for Django: <https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django>
 
 Examples of DBCA-built web applications using Django:
 
-- [Planning Referral System](https://prs.dbca.wa.gov.au) - code repository at <https://github.com/dbca-wa/prs>
-- [IBMS](https://ibms.dbca.wa.gov.au) - code repository at <https://github.com/dbca-wa/ibms>
+-   [Planning Referral System](https://prs.dbca.wa.gov.au) - code repository at <https://github.com/dbca-wa/prs>
+-   [IBMS](https://ibms.dbca.wa.gov.au) - code repository at <https://github.com/dbca-wa/ibms>
 
 To minimise development effort, we typically take the following approach when building a new system:
 
@@ -107,6 +108,6 @@ Information security is an important topic and relevant to all software develope
 
 Other resources/advice:
 
-- [1Password](https://1password.com/) - a service for managing and sharing organisational secrets within OIM.
-- Keep sensitive information out of project repositories - don't commit user credentials, passwords, access keys or database dumps to the repository. Get in the habit of creating a `.gitignore` file and adding relevant file patterns to it in order to reduce the chance of this happening.
-- In the case of credentials or keys, the recommended approach is to make your settings/config code read these pieces of information in via **environment variables**.
+-   [1Password](https://1password.com/) - a service for managing and sharing organisational secrets within OIM.
+-   Keep sensitive information out of project repositories - don't commit user credentials, passwords, access keys or database dumps to the repository. Get in the habit of creating a `.gitignore` file and adding relevant file patterns to it in order to reduce the chance of this happening.
+-   In the case of credentials or keys, the recommended approach is to make your settings/config code read these pieces of information in via **environment variables**.
