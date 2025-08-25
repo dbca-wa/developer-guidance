@@ -95,6 +95,6 @@ The Caddy service runs as a Deployment with default number of two replicas. The 
 
 In addition, a PDB has been defined for the Deployment that sets the minimum number of available replicas to 1. This assists the Kubernetes scheduler to ensure that a minimum of 1 running replica should always be available within the cluster (e.g. during node drain events).
 
-<https://github.com/dbca-wa/caddy/blob/master/kustomize/base/deployment.yaml>
-<https://github.com/dbca-wa/caddy/blob/master/kustomize/base/deployment_hpa.yaml>
-<https://github.com/dbca-wa/caddy/blob/master/kustomize/overlays/prod/pdb.yaml>
+- <https://github.com/dbca-wa/caddy/blob/master/kustomize/base/deployment.yaml>
+- <https://github.com/dbca-wa/caddy/blob/master/kustomize/base/deployment_hpa.yaml>
+- <https://github.com/dbca-wa/caddy/blob/master/kustomize/overlays/prod/pdb.yaml>

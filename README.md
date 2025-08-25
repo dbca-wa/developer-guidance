@@ -8,6 +8,7 @@ Additional resource documentation pages include the following:
 - [Docker](/developer-guidance/Docker)
 - [Auth2](/developer-guidance/Auth2)
 - [Git](/developer-guidance/Git)
+- [Kustomize](/developer-guidance/Kustomize)
 
 ## Software development environment
 
@@ -110,3 +111,4 @@ Other resources/advice:
 - [1Password](https://1password.com/) - a service for managing and sharing organisational secrets within OIM.
 - Keep sensitive information out of project repositories - don't commit user credentials, passwords, access keys or database dumps to the repository. Get in the habit of creating a `.gitignore` file and adding relevant file patterns to it in order to reduce the chance of this happening.
 - In the case of credentials or keys, the recommended approach is to make your settings/config code read these pieces of information in via **environment variables**.
+
