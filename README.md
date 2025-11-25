@@ -8,8 +8,12 @@ This is a resource for software developers in DBCA, to provide guidance on devel
 
 Additional resource documentation pages include the following:
 
-- [Git](/developer-guidance/Git)
-- [Docker](/developer-guidance/Docker)
+- [Git](/developer-guidance/Git) - basic instructions and workflow for using Git.
+- [Docker](/developer-guidance/Docker) - instructions for the use of Docker during development.
 - [Rancher](/developer-guidance/Rancher) - usage of Rancher to manage Kubernetes resources.
 - [Auth2](/developer-guidance/Auth2) - DBCA's bespoke internet single-sign-on (SSO) solution.
 - [Kustomize](/developer-guidance/Kustomize) - declarative Kubernetes resource definitions.
+
+## Contributions
+
+This resource is intended as a living collaborative document. All DBCA developers are encouraged to submit pull requests to this repository with additions and corrections.
