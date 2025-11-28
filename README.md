@@ -14,6 +14,10 @@ Additional resource documentation pages include the following:
 - [Auth2](/developer-guidance/Auth2) - DBCA's bespoke internet single-sign-on (SSO) solution.
 - [Kustomize](/developer-guidance/Kustomize) - declarative Kubernetes resource definitions.
 
+## Project layout
+
+This project is intended to be built and deployed as a static site via GitHub Pages. Create new pages in GitHub-flavoured Markdown files in the project root and they will be automatically built and deployed at <https://dbca-wa.github.io/developer-guidance/>.
+
 ## Contributions
 
 This resource is intended as a living collaborative document. All DBCA developers are encouraged to submit pull requests to this repository with additions and corrections.
