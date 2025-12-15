@@ -27,7 +27,7 @@ Additional HTTP headers which are appended to a request by Nginx for Auth2-authe
 - `X-Last-name` - the user's surname.
 - `X-Groups` - a comma-separated list of the user's group memberships within Auth2 itself. This value can be optionally used for the purposes of authorisation.
 
-**NOTE**: not all HTTP headers are guaranteed to be included with the HTTP response. For an authenticated user, the `X-Email` header will **always** be included. `X-First-name` and `X-Last-name` are not guaranteed be included, because an external identity provider might not always provide a value for those fields, therefore the values sent to Nginx will be empty. Likewise, it is possible for an authenticated user to not belong to any groups within Auth2, therefore the `X-Groups` header value might also be empty. Nginx will not forward HTTP headers with null values, so these headers will be absent from the response.
+**NOTE**: not all HTTP headers are guaranteed to be included with the HTTP response. For an authenticated user, the `X-Email` header will **always** be included. `X-First-name` and `X-Last-name` are not guaranteed to be included because an external identity provider might not always provide a value for those fields, therefore the values sent to Nginx will be empty. Likewise, it is possible for an authenticated user to not belong to any groups within Auth2, therefore the `X-Groups` header value might also be empty. Nginx will not forward HTTP headers with null values, so these headers will be absent from the response.
 
 ## Nginx rules summary
 
