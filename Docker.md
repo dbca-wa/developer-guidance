@@ -33,18 +33,6 @@ Resources:
 
 - Dockerfile specification reference: <https://docs.docker.com/engine/reference/builder/>
 
-## What is a Swarm?
-
-Docker can be run on more than one host which can be made aware of other Docker hosts in a "Swarm". Each host is called a "node", and nodes can be authorised to manage and control other nodes (or not). Swarm is a clustering and management tool for Docker containers.Currently the Department is not running production applications in a multi-node Swarm, so we don't need to know much more about thisfeature of Docker. We do make use of single-node Swarms to use the features related to application Services and Stacks (see below).
-
-## What is a Service, and what is a Stack?
-
-A Service is one or more containers that are running the same version of a Container. A Stack is a collection of Services that make up an application in a specific environment.
-
-Resources:
-
-- <https://docs.docker.com/get-started/part3/>
-
 ## What is a Registry?
 
 A Docker registry is a storage and content delivery system for named Docker images. It can be self-hosted, third-party-hosted, or the official Docker Hub registry (<https://hub.docker.com/>).
@@ -56,15 +44,13 @@ A Docker registry is a storage and content delivery system for named Docker imag
 Pull an image from the online registry to local storage:
 
 ```bash
-docker pull IMAGE
+docker pull <IMAGE NAME>
 ```
 
-Basic run commands:
+Basic run command:
 
 ```bash
-docker container run IMAGE
 docker container run --publish 80:80 nginx
-docker container run --detach --publish 8281:8080 --env DATABASE_URL=postgres://username:PASSWORD@hostname/database_name --env DEBUG=True dbcawa/prs:latest
 ```
 
 Breakdown:
@@ -172,7 +158,7 @@ Define a named volume when starting a container:
 
 ```bash
 docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
-docker container run -d --name pgdb -e POSTGRES_PASSWORD=pass -p 5432:5432 -v pgdb:/var/lib/postgresql/data postgres:10-alpine
+docker container run -d --name pgdb -e POSTGRES_PASSWORD=pass -p 5432:5432 -v pgdb:/var/lib/postgresql/data postgres
 ```
 
 Bind mounting maps a host file/dir to a container file/dir. Can't use this in a Dockerfile, must be at container run. E.g.:
@@ -181,122 +167,9 @@ Bind mounting maps a host file/dir to a container file/dir. Can't use this in a 
 docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v /path/on/host:/path/in/container mysql
 ```
 
-## Docker Swarm
-
-Swarm mode uses a distributed consensus to maintain cohesion. Raft consensus overview: <http://thesecretlivesofdata.com/raft/>
-
-Docs, deploying services to a swarm: <https://docs.docker.com/engine/swarm/services/>
-
-Creating a swarm using overlay network driver creates a distributed network between all the Docker hosts using that network (kind of a VPN between the hosts).
-
-Reference: <https://docs.docker.com/network/overlay/>
-
-Swarm services connected to the same overlay network expose all ports to each other. For a port to be accessible outside of the service, it must be published on service create/update. All nodes in a swarm participate in an ingress routing mesh. The mesh enables each node in the swarm to accept connections on published ports to any service running in the swarm. Routing mesh docs: <https://docs.docker.com/engine/swarm/ingress/>
-
-The routing mesh:
-
-- Routes ingress (incoming) network packets for a service to the proper task.
-- Spans all nodes in the swarm.
-- Load balances swarm services across their tasks.
-
-To enable Swarm mode for a Docker host:
-
-```bash
-docker swarm init
-docker info
-```
-
-Service commands:
-
-```bash
-docker service create alpine ping 1.1.1.1
-docker service ls
-docker service update NAME --replicas 3
-docker service ls
-docker service rm NAME
-```
-
-Swarm commands:
-
-```bash
-docker node ls
-docker swarm join-token [manager|worker]
-# Update a node to a manager:
-docker node update --role manager HOSTNAME
-# Change a node to a worker:
-docker node update --role worker HOSTNAME
-# Deploy a service to the swarm:
-docker service create --replicas 3 alpine ping 1.1.1.1
-# List services running on a node:
-docker node ps NODE
-# List nodes running a service;
-docker service ps SERVICE
-# Inspect service details:
-docker service inspect --pretty SERVICE
-```
-
-## Service logs
-
-Only works for logs that are not shipped to another service (via --log-driver). Reference: <https://docs.docker.com/engine/reference/commandline/service_logs/>
-
-```bash
-# Return all logs for a service:
-docker service logs SERVICE
-# Return unformatted logs with no truncing:
-docker service logs --raw --no-trunc SERVICE
-# Return that last 50 logs and follow:
-docker service logs --tail 50 --follow SERVICE
-# To pipe service logs output to grep, use 2>%1
-docker service logs --tail 500 SERVICE 2>&1 | grep "Some search text"
-```
-
-## Docker Compose
-
-Compose is a tool for defining and running multi-container Docker applications: Compose file format reference: <https://docs.docker.com/compose/compose-file/>
-
-Compose is configured using YML-formatted files. A multi-container service Compose file example:
-
-```yml
-version: '3'
-
-services:
-  pgdb:
-    image: postgres
-    environment:
-      - POSTGRES_PASSWORD=pass
-    volumes:
-      - pgdb-data:/var/lib/postgresql/data
-  drupal:
-    image: drupal
-    ports:
-      - '8082:80'
-    volumes:
-      - drupal-modules:/var/www/html/modules
-      - drupal-profiles:/var/www/html/profiles
-      - drupal-themes:/var/www/html/themes
-    depends_on:
-      - pgdb
-
-volumes:
-  pgdb-data:
-  drupal-modules:
-  drupal-profiles:
-  drupal-themes:
-```
-
-Using Compose to build images: use the [**build**](https://docs.docker.com/compose/compose-file/#build) options.
-
-## Swarm Stacks using Compose
-
-Stacks are another abstraction in Docker Swarm. Stacks accept Compose files as their declarative definition for services, volumes and networks. Stack commands:
-
-```bash
-docker stack ls
-docker stack services STACK  # Lists the current services for a stack
-docker stack ps STACK  # Shows the tasks (running or not) for a stack
-```
-
 ## A basic Docker image recipe
+
+Documentation: <https://docs.docker.com/build/>
 
 Basic steps are as follows:
 
@@ -309,11 +182,7 @@ Basic steps are as follows:
 - You can run `docker container exec -it CONTAINER_ID /bin/bash` to get into the running bash for the container
 - Once successfully running locally, push the image to Docker Hub (`docker image push DOCKER_REPO:TAG`, push once without tag for latest, and once with tag for a tagged release)
 
-Best practices for building Docker images:
-
-- <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/>
-- <https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices/>
-- Production-ready images for Python: <https://pythonspeed.com/docker/>
+Best practices for building Docker images: <https://docs.docker.com/build/building/best-practices/>.
 
 ## Using the GitHub Container Repository (ghcr.io)
 
@@ -322,15 +191,3 @@ There are a couple of steps required for a developer to use the GitHub Container
 1. The developer needs to create a Personal Access Token ([instructions here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)) and use that as the password to authenticate with the registry (i.e. `docker login ghcr.io -u <USERNAME>`).
 2. The uploaded image needs to be linked to a repository ([instructions here](https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package)), either manually in GitHub or using a LABEL in the Dockerfile.
 3. Permission settings for Github packages need to be set IN ADDITION to permissions on the linked repository. Having linked a package to a repo and pushed an image, open the repo in GitHub, click the container package on the right-hand side, then click "Package settings" on the right hand side again. Set the required Inherited Access settings on this page.
-
-## Other resources
-
-- [Introduction to Kustomize](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/) - Kustomize provides a solution for customizing Kubernetes resource configuration.
-- [Rancher Desktop](https://rancherdesktop.io/) - an open-source desktop application for Mac and Windows, providing Kubernetes and container management in a desktop installer.
-
-## kubectl references
-
-- [kubectl command reference](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
-- [Cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
-- [Conventions](https://kubernetes.io/docs/reference/kubectl/conventions/)
-
