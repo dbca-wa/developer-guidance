@@ -13,6 +13,7 @@ Additional resource documentation pages include the following:
 - [Rancher](/developer-guidance/Rancher) - usage of Rancher to manage Kubernetes resources.
 - [Auth2](/developer-guidance/Auth2) - DBCA's bespoke internet single-sign-on (SSO) solution.
 - [Kustomize](/developer-guidance/Kustomize) - declarative Kubernetes resource definitions.
+- [React](/developer-guidance/React) - modern React development patterns and recommended tooling.
 
 ## Project layout
 
