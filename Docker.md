@@ -8,6 +8,7 @@ This content is intended as a summary introduction for developers that may need 
 
 In addition to this page, the following links may contain useful or more-detailed content for learning Docker:
 
+- <https://docs.docker.com/get-started/docker-overview/>
 - <https://docker-curriculum.com>
 - <https://docs.linuxserver.io/general/containers-101>
 
@@ -15,27 +16,38 @@ In addition to this page, the following links may contain useful or more-detaile
 
 [Docker](https://opensource.com/resources/what-docker) is a open source computer program that performs operating-system-level virtualisation (also known as containerisation). Docker allows us to deploy and run software applications inside **Containers**, which (roughly) are applications that are packaged up with all the assets needed to run (binaries, libraries, static files, etc.) on any suitable host that runs the Docker daemon. A Container is (approximately) an executable which is a kind of extremely lightweight VM without including any OS of its own. In effect, Docker provides a set of APIs that a Container can use to access the underlying OS functions.
 
-Resources:
+References:
 
-- What is a container: <https://www.docker.com/what-container>
+- <https://docs.docker.com/get-started/docker-overview/>
+- <https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/>
 
 ## What is an Image?
 
-An **Image** (in the context of Docker) is an inert, immutable file that is a snapshot of a container. Images are stored in a **Registry** (see later), and are (roughly) equivalent to a tagged Git commit of a Container. Images are built from instructions in a **Dockerfile** (see below).
+A **Docker image** is a read‑only, versioned package that contains an application and everything it needs to run—code, runtime, libraries, environment variables, and configuration.
 
-Source: <https://stackoverflow.com/questions/23735149/what-is-the-difference-between-a-docker-image-and-a-container>
+Images are stored in a **Registry** (see below), and are (roughly) equivalent to a tagged Git commit of a Container. Images are built from instructions in a **Dockerfile** (see below).
+
+References:
+
+- <https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/>
+- <https://www.geeksforgeeks.org/devops/what-is-docker-image/>
 
 ## What is a Dockerfile?
 
 A Dockerfile is a text document that contains all of the commands a user would call on the command line to assemble an Image. An analogy: a Dockerfile is like a cake recipe, an Image is a pre-made cake mix, a Container is a finished cake.
 
-Resources:
+References:
 
-- Dockerfile specification reference: <https://docs.docker.com/engine/reference/builder/>
+- <https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/>
+- <https://docs.docker.com/engine/reference/builder/>
 
 ## What is a Registry?
 
 A Docker registry is a storage and content delivery system for named Docker images. It can be self-hosted, third-party-hosted, or the official Docker Hub registry (<https://hub.docker.com/>).
+
+References:
+
+- <https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-registry/>
 
 # Docker command examples
 
