@@ -14,6 +14,7 @@ Additional resource documentation pages include the following:
 - [Auth2](/developer-guidance/Auth2) - DBCA's bespoke internet single-sign-on (SSO) solution.
 - [Kustomize](/developer-guidance/Kustomize) - declarative Kubernetes resource definitions.
 - [React](/developer-guidance/React) - modern React development patterns and recommended tooling.
+- [Containerisation learning path](/developer-guidance/Containerisation_Learning) - a syllabus for building knowledge from local Docker to production hosting in Kubernetes.
 
 ## Project layout
 
