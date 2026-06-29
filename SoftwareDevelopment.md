@@ -3,11 +3,13 @@
 DBCA software developers are encouraged to undertake development locally in an environment that is as close as possible to the final deployed application environment in order to reduce the incidence of "works on my machine" problems.
 
 The department's standard operating environment (SOE) is currently Microsoft Windows 11, so the majority of DBCA developers are assumed to be carrying out development within this operating system and the following advice is written with this in mind. The one "essential" development tool is **[Git](https://git-scm.com/)**, which is our designated version control software solution.
-Refer to the [Git](/developer-guidance/Git) page for more information about installing and using Git. Development tools are generally expected to be installed via Company Portal.
+Refer to the [Git](/developer-guidance/Git) page for more information about installing and using Git.
+
+Development tools are generally expected to be installed via **Company Portal** (a request to Service Desk may be required to enable installation of specialised development software). New software can be made available for install, subject to review and approval.
 
 ## Development IDE
 
-The software development IDE is a matter of preference for the individual developer. Microsoft's development IDE [Visual Studio Code](https://code.visualstudio.com/) is a good choice and is available for install on Company Portal. It is free to use, well documented, well-supported and highly configurable. It also plays extremely well with WSL (see below) via an extension.
+The software development IDE is a matter of preference for the individual developer. Microsoft's development IDE [Visual Studio Code](https://code.visualstudio.com/) is a good choice and is available for install on **Company Portal**. It is free to use, well documented, well-supported and highly configurable. It also plays extremely well with WSL (see below) via an extension.
 
 ## Web development stack
 
@@ -28,11 +30,11 @@ This selection of technologies is not prescriptive, but represents a proven, rel
 - Python 3 - New projects should _always_ be developed against a recent version of Python 3. Notwithstanding the similarities, Python 2 is no longer maintained for the purposes of features or security.
 - Correct tool for the job - developers should be mindful of using Python where its strengths are greatest (rapid prototyping, versatility, portability, maintainability) versus other tools that may have advantages (SQL for database queries, command-line tools for file/text handling, JavaScript for DOM manipulation, etc.)
 
-For installation, most \*nix operating systems come with a version of Python installed which will probably be sufficient for learning. For usage instructions, see [this page](https://docs.python.org/3/using/index.html). For installation on Windows, see [this page](https://docs.python.org/3/using/windows.html).
+For installation, a supported version of Python 3 is available via **Company Portal**. Alternatively, Ubuntu via WSL (see below) will include Python. For usage instructions, see [this page](https://docs.python.org/3/using/index.html).
 
 A suggested syllabus for learning Python for the purposes of web application development is as follows:
 
-- Install Python 3.x on your PC.
+- Install Python 3 on your PC via **Company Portal**.
 - If required, take a [crash course in the Python syntax](https://www.freecodecamp.org/news/learning-python-from-zero-to-hero-120ea540b567).
 - For a more thorough overview of Python syntax, read the [Dive Into Python ebook](https://diveintopython3.net/), chapters 0, 1, 2, 3, 4, 7, 11 & 14 (the whole book is valuable, but these chapters will get you basically productive).
 
@@ -70,11 +72,11 @@ To minimise development effort, we typically take the following approach when bu
 
 The usage of Git for version control is covered in detail on this page: [Git](/developer-guidance/Git)
 
-The department makes use of the [dbca-wa GitHub organisation](https://github.com/dbca-wa) for code management. DBCA developers should create a GitHub account and request OIM for an invitation to the organisation.
+The department makes use of the [dbca-wa GitHub organisation](https://github.com/dbca-wa) for code management. DBCA developers should create a GitHub account and request OIM for an invitation to the organisation. GitHub Desktop is available for install via **Company Portal**.
 
 ## Docker
 
-The department's preferred method of serving bespoke web services is as containerised [Docker](https://www.docker.com/) images and deployed using [Kubernetes](https://kubernetes.io/docs/home/). Therefore, is it useful for developers to install and run Docker locally. A sensible approach is to install and run Docker inside a WSL development environment. A guide for installing Docker inside the Ubuntu WSL is available [here](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7) (includes instructions for installing the Azure CLI and dotnet core).
+The department's preferred method of serving bespoke web services is as containerised [Docker](https://www.docker.com/) images and deployed using [Kubernetes](https://kubernetes.io/docs/home/). Therefore, is it useful for developers to install and run Docker locally. A sensible approach is to install and run Docker inside a WSL development environment (see below). A guide for installing Docker inside the Ubuntu WSL is available [here](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7) (includes instructions for installing the Azure CLI and dotnet core). If Ubuntu is not used, Docker Desktop for Windows may be installed via via **Company Portal** (a license is required).
 
 We maintain a document that may serve as an introduction for developers to start learning about Docker here: [Docker](/Docker.md).
 
@@ -90,12 +92,12 @@ Many of the department's bespoke systems are built and deployed against a Linux 
 
 Microsoft has made it surprisingly easy to run a Linux environment under Windows 10 and newer. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/about) is a modern alternative to a virtual machine as it runs natively on the local hardware, meaning that performance is rarely an issue. Installed WSL environments also run directly on the local filesystem, so all local files can be read and copied as required. You can happily run Virtual Studio Code in Windows with a project in a WSL environment for development, via the optional WSL extension.
 
-For a good experience, OIM recommends that developers utilise [WSL](https://learn.microsoft.com/en-gb/windows/wsl/install) to install and run a recent (LTS) version of Ubuntu Server. This OS is free, has excellent technical support, up-to-date packages, and (importantly) has a vast corpus of documentation available. Some good resources for developers new to working in a Linux command-line environment are as follows:
+For a good experience, OIM recommends that developers utilise [WSL](https://learn.microsoft.com/en-gb/windows/wsl/install) to install and run a recent (LTS) version of Ubuntu Server. This OS is free, has excellent technical support, up-to-date packages, and (importantly) has a vast corpus of documentation available. Ubuntu via WSL is available for installed via **Company Portal**.
+
+Some good resources for developers new to working in a Linux command-line environment are as follows:
 
 - [Linux Tutorial for Beginners](https://ryanstutorials.net/linuxtutorial/)
 - [Linux Command Reference](https://perpetualpc.net/srtd_commands_rev.html)
-
-Aside from WSL, there's the option of using an emulator like VirtualBox to run a local Linux VM for development purposes. This is no longer a recommended approach.
 
 ## Software development best practices
 
