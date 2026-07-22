@@ -3,7 +3,7 @@
 DBCA software developers are encouraged to undertake development locally in an environment that is as close as possible to the final deployed application environment in order to reduce the incidence of "works on my machine" problems.
 
 The department's standard operating environment (SOE) is currently Microsoft Windows 11, so the majority of DBCA developers are assumed to be carrying out development within this operating system and the following advice is written with this in mind. The one "essential" development tool is **[Git](https://git-scm.com/)**, which is our designated version control software solution.
-Refer to the [Git](/developer-guidance/Git) page for more information about installing and using Git.
+Refer to the [Git]({{ site.baseurl }}/Git) page for more information about installing and using Git.
 
 Development tools are generally expected to be installed via **Company Portal** (a request to Service Desk may be required to enable installation of specialised development software). New software can be made available for install, subject to review and approval.
 
@@ -70,7 +70,7 @@ To minimise development effort, we typically take the following approach when bu
 
 ## Git
 
-The usage of Git for version control is covered in detail on this page: [Git](/developer-guidance/Git)
+The usage of Git for version control is covered in detail on this page: [Git]({{ site.baseurl }}/Git)
 
 The department makes use of the [dbca-wa GitHub organisation](https://github.com/dbca-wa) for code management. DBCA developers should create a GitHub account and request OIM for an invitation to the organisation. GitHub Desktop is available for install via **Company Portal**.
 

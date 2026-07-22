@@ -1,1 +1,4 @@
+domain: dbca-wa.github.io
+url: https://dbca-wa.github.io
 theme: jekyll-theme-cayman
+baseurl: /developer-guidance
