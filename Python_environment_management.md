@@ -3,7 +3,7 @@
 This is a summary of the workflow for managing installed Python versions and isolated, per-project virtual environments using modern tools.
 
 ## Sidebar: Why tho?
-We have **pip**, **virtualenv**, and a `requirements.txt` file: why would we go to to additional effort of using a package manager? Using pip alone to manage project dependencies is viable, but it has a couple of shortcomings:
+We have **pip**, **virtualenv**, and a `requirements.txt` file: why would we go to the additional effort of using a package manager? Using pip alone to manage project dependencies is viable, but it has a couple of shortcomings:
 
 - pip doesn't handle your Python executable, only your Python dependencies. So if you need to upgrade Python versions (for example from 3.11 to 3.13), it doesn't assist at all. You could upgrade the system version of Python, but what if you need to maintain access to the old version to support another project? Tools such as **uv** allow you to install and manage a Python executable _specific to your project only_.
 - pip doesn't resolve dependencies of dependencies (i.e. the dependency graph). pip will only respect version pinning for dependencies that you explicitly specify. So for example, say I am using pandas and I pin it to version X. If a dependency of pandas (say, numpy) isn't pinned as well, the underlying version of numpy can still change when I reinstall dependencies. A Python environment might stop working despite none of the specified dependencies changing, because underlying dependencies introduced breaking changes. To get around this with pip you would need an additional tool like **pip-tools**, which allows you to pin all dependencies, explicit and nested, to a lock file for true reproducibility. Tools like **Poetry** and **uv** do this out of the box.
@@ -52,7 +52,7 @@ uv init --name myprojectname --no-package --app --python 3.13
 This step will generate several outputs:
 
 - `.python-version`: this file tells uv which Python version to use. Add this file to `.gitignore`.
-- `pyproject.toml`: this file contains metadata about your project, and replaces the old `requirement.txt`. Add this file to the Git repo.
+- `pyproject.toml`: this file contains metadata about your project, and replaces the old `requirements.txt`. Add this file to the Git repo.
 - `hello.py`: a sample file to check operation. This can be deleted later.
 - `README.md`: information about your project.
 
@@ -81,13 +81,13 @@ source .venv/bin/activate
 
 ## Workflow: automatically update project dependencies
 
-Once you have a project with some dependencies installed and some time passes, there's a fair chance that those dependencies (either direct or transitive) will see updates released. Because `uv` calculates the entire dependency graph and preserves this via `uv.lock`, it is straighforward to automatically install compatible package updates like so:
+Once you have a project with some dependencies installed and some time passes, there's a fair chance that those dependencies (either direct or transitive) will see updates released. Because `uv` calculates the entire dependency graph and preserves this via `uv.lock`, it is straightforward to automatically install compatible package updates like so:
 
 ```
 uv lock --upgrade
 ```
 
-This is check PyPI for updated package versions, determine any compatible upgrades, install the upgraded packages locally and update the lockfile.
+This will check PyPI for updated package versions, determine any compatible upgrades, install the upgraded packages locally and update the lockfile.
 
 NOTE: it is best practice to "pin" a project's direct dependency versions at the point of installation (e.g. `uv add django==4.2.18`) in order to ensure consistent project behaviour (especially in multi-developer projects). These dependencies should be updated manually, with appropriate testing carried out.
 
@@ -148,13 +148,13 @@ Update pyenv periodically like so:
 
 ```
 pyenv update
-````
+```
 
 By default, locally-installed Python versions will be saved at `~/.pyenv/versions`. To remove a version, use `pyenv uninstall <version>`.
 
 ## Poetry
 
-pyenv comes with pyenv-virtualenv to manage isolated Python environments. Instead of that, we can use **Poetry** to manage virtual environments and project dependencies (it has better dependency graph management, among other features).
+**Poetry** manages virtual environments and project dependencies (it has better dependency graph management, among other features).
 
 Install Poetry (installs to local user directory, not globally) according to the docs: https://python-poetry.org/docs/#installation
 
@@ -164,7 +164,7 @@ Inside a project directory, initialise the project dependencies (follow the on s
 poetry init
 ```
 
-Add the `pyproject.toml` and `poetry.lock` files to the project repository, as these are what Poetry uses to track installed depencency versions. Install a new virtual environment for the project:
+Add the `pyproject.toml` and `poetry.lock` files to the project repository, as these are what Poetry uses to track installed dependency versions. Install a new virtual environment for the project:
 ```
 
 poetry install
@@ -194,7 +194,7 @@ Thereafter you can run Python commands in the shell session as normal. You can a
 poetry run python my_script.py
 ```
 
-# Links
+## Links
 
 * uv: <https://docs.astral.sh/uv/>
 * pyenv: <https://github.com/pyenv/pyenv>

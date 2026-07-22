@@ -42,7 +42,7 @@ A suggested syllabus for learning Python for the purposes of web application dev
 
 Once you start working on more than one project, managing separate and isolated Python environments for each one becomes a requirement. [This is a good primer](https://realpython.com/python-virtual-environments-a-primer/) on Python virtual environments and why you need them.
 
-There are many different Python environment management tools on the market (pip, pip-tools, Poetry, Pipenv, etc.) and the choice always remain with individual developer, but the current recommended tool is [uv](https://docs.astral.sh/uv/). It's fast, easy to use, and is Python-standards-compliant. First steps are as follows:
+There are many different Python environment management tools on the market (pip, pip-tools, Poetry, Pipenv, etc.) and the choice always remains with the individual developer, but the current recommended tool is [uv](https://docs.astral.sh/uv/). It's fast, easy to use, and is Python-standards-compliant. First steps are as follows:
 
 - Install [uv](https://docs.astral.sh/uv/getting-started/installation/) on your development PC.
 - [Install a specific version of Python using uv](https://docs.astral.sh/uv/guides/install-python/).
@@ -76,7 +76,7 @@ The department makes use of the [dbca-wa GitHub organisation](https://github.com
 
 ## Docker
 
-The department's preferred method of serving bespoke web services is as containerised [Docker](https://www.docker.com/) images and deployed using [Kubernetes](https://kubernetes.io/docs/home/). Therefore, is it useful for developers to install and run Docker locally. A sensible approach is to install and run Docker inside a WSL development environment (see below). A guide for installing Docker inside the Ubuntu WSL is available [here](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7) (includes instructions for installing the Azure CLI and dotnet core). If Ubuntu is not used, Docker Desktop for Windows may be installed via via **Company Portal** (a license is required).
+The department's preferred method of serving bespoke web services is as containerised [Docker](https://www.docker.com/) images and deployed using [Kubernetes](https://kubernetes.io/docs/home/). Therefore, it is useful for developers to install and run Docker locally. A sensible approach is to install and run Docker inside a WSL development environment (see below). A guide for installing Docker inside the Ubuntu WSL is available [here](https://dev.to/bartr/install-docker-on-windows-subsystem-for-linux-v2-ubuntu-5dl7) (includes instructions for installing the Azure CLI and dotnet core). If Ubuntu is not used, Docker Desktop for Windows may be installed via **Company Portal** (a license is required).
 
 We maintain a document that may serve as an introduction for developers to start learning about Docker here: [Docker](/Docker.md).
 
@@ -90,9 +90,9 @@ Note that production containerised systems are served in a managed Azure Kuberne
 
 Many of the department's bespoke systems are built and deployed against a Linux environment, therefore it is highly recommended for developers to carry out development locally within a similar environment.
 
-Microsoft has made it surprisingly easy to run a Linux environment under Windows 10 and newer. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/about) is a modern alternative to a virtual machine as it runs natively on the local hardware, meaning that performance is rarely an issue. Installed WSL environments also run directly on the local filesystem, so all local files can be read and copied as required. You can happily run Virtual Studio Code in Windows with a project in a WSL environment for development, via the optional WSL extension.
+Microsoft has made it surprisingly easy to run a Linux environment under Windows 10 and newer. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/about) is a modern alternative to a virtual machine as it runs natively on the local hardware, meaning that performance is rarely an issue. Installed WSL environments also run directly on the local filesystem, so all local files can be read and copied as required. You can happily run Visual Studio Code in Windows with a project in a WSL environment for development, via the optional WSL extension.
 
-For a good experience, OIM recommends that developers utilise [WSL](https://learn.microsoft.com/en-gb/windows/wsl/install) to install and run a recent (LTS) version of Ubuntu Server. This OS is free, has excellent technical support, up-to-date packages, and (importantly) has a vast corpus of documentation available. Ubuntu via WSL is available for installed via **Company Portal**.
+For a good experience, OIM recommends that developers utilise [WSL](https://learn.microsoft.com/en-gb/windows/wsl/install) to install and run a recent (LTS) version of Ubuntu Server. This OS is free, has excellent technical support, up-to-date packages, and (importantly) has a vast corpus of documentation available. Ubuntu via WSL is available for installation via **Company Portal**.
 
 Some good resources for developers new to working in a Linux command-line environment are as follows:
 

@@ -22,18 +22,18 @@ It is impossible to account for all different operational scenarios; the table b
 
 | Scenario                                                         | Storage class | Rationale                                                           | Limitations                                                                          |
 | ---------------------------------------------------------------- | ------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Static assets (image/video/etc.), write once, read many times    | Azure Blob    | Scalability, much lower storage cost than Azure File/Disk, scalable | Relatively low performance, not a "real" filesystem, no file locking guarantee       |
+| Static assets (image/video/etc.), write once, read many times    | Azure Blob    | Much lower storage cost than Azure File/Disk, scalable | Relatively low performance, not a "real" filesystem, no file locking guarantee       |
 | NFS mount simultaneously writeable by >1 workload                | Azure File    | Required for multi-node access to NFS mount                         | Slightly more expensive than Azure Disk, no inherent user/group permissions          |
 | File system only ever used by single workload (e.g. statefulset) | Azure Disk    | "Traditional" mounted volume                                        | No ability for simultaneous usage by multiple nodes, doesn't support _ReadWriteMany_ |
 | Ephemeral/temporary working space                                | In-memory     | High performance, low latency, disposable, nil additional cost      | Space availability (workload memory limit)                                           |
 
 ## Azure Blob Storage
 
-Azure Blob Storage (Blob stands for "Binary Large OBject") is a cloud-based object storage service, designed to store large amounts of unstructured data (somewhat equivalent of Amazon S3 storage). It is accessible via REST APIs and client libraries (SDKs). It has the advantages of being much cheaper than other storage classes and almost infinitely scalable, at the cost of not being suitable for mounted file operations.
+Azure Blob Storage (Blob stands for "Binary Large OBject") is a cloud-based object storage service, designed to store large amounts of unstructured data (somewhat equivalent to Amazon S3 storage). It is accessible via REST APIs and client libraries (SDKs). It has the advantages of being much cheaper than other storage classes and almost infinitely scalable, at the cost of not being suitable for mounted file operations.
 
 It is ideal for bulk storage of static files (i.e. write once, read many). User-uploaded media (images, videos, etc.) or system outputs (CSV exports, etc.) are ideal candidates for this storage class.
 
-Systems should interact with Blob storage via a software SDK as an object store. The Microsoft-supported Python package is [azure-storage-blob](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python). In addition, Blob storage has excellent support for usage within Django via [django-storages](https://django-storages.readthedocs.io/en/latest/backends/azure.html) package.
+Systems should interact with Blob storage via a software SDK as an object store. The Microsoft-supported Python package is [azure-storage-blob](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-python). In addition, Blob storage has excellent support for usage within Django via the [django-storages](https://django-storages.readthedocs.io/en/latest/backends/azure.html) package.
 Example DBCA Django project making use of blob storage: <https://github.com/dbca-wa/prs>
 
 ## Azure Files
@@ -44,6 +44,6 @@ Use [Azure Files](https://learn.microsoft.com/en-us/azure/aks/azure-files-csi) t
 
 ## Azure Disk
 
-Use [Azure Disk](https://learn.microsoft.com/en-us/azure/aks/azure-disk-csi) to create a Kubernetes _DataDisk_ resource. This storage class is mounted on an individual cluster as a file system, and is suitable for applications requiring fast local file operations.
+Use [Azure Disk](https://learn.microsoft.com/en-us/azure/aks/azure-disk-csi) to create a Kubernetes _DataDisk_ resource. This storage class is mounted on an individual cluster node as a file system, and is suitable for applications requiring fast local file operations.
 
 **NOTE**: because Azure Disk is mounted as _ReadWriteOnce_, these disks are only available to a single node at once. For storage volumes needing to be accessible by pods on multiple nodes simultaneously, use **Azure Files**.
