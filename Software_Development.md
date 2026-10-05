@@ -5,7 +5,7 @@ DBCA software developers are encouraged to undertake development locally in an e
 The department's standard operating environment (SOE) is currently Microsoft Windows 11, so the majority of DBCA developers are assumed to be carrying out development within this operating system and the following advice is written with this in mind. The one "essential" development tool is **[Git](https://git-scm.com/)**, which is our designated version control software solution.
 Refer to the [Git]({{ site.baseurl }}/Git) page for more information about installing and using Git.
 
-Development tools are generally expected to be installed via **Company Portal** (a request to Service Desk may be required to enable installation of specialised development software). New software can be made available for install, subject to review and approval.
+Development tools are generally expected to be installed via **Company Portal** (a request to Service Desk may be required to enable installation of specialised development software). New software can be made available for installation, subject to review and approval.
 
 ## Development IDE
 
@@ -90,9 +90,9 @@ Note that production containerised systems are served in a managed Azure Kuberne
 
 Many of the department's bespoke systems are built and deployed against a Linux environment, therefore it is highly recommended for developers to carry out development locally within a similar environment.
 
-Microsoft has made it surprisingly easy to run a Linux environment under Windows 10 and newer. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/about) is a modern alternative to a virtual machine as it runs natively on the local hardware, meaning that performance is rarely an issue. Installed WSL environments also run directly on the local filesystem, so all local files can be read and copied as required. You can happily run Visual Studio Code in Windows with a project in a WSL environment for development, via the optional WSL extension.
+Microsoft has made it surprisingly easy to run a Linux environment under Windows 10 and later. [Windows Subsystem for Linux](https://docs.microsoft.com/en-gb/windows/wsl/about) is a modern alternative to a virtual machine, as it runs natively on local hardware, meaning performance is rarely an issue. Installed WSL environments also run directly on the local filesystem, so all local files can be read and copied as required. You can happily run Visual Studio Code in Windows with a project in a WSL environment for development via the optional WSL extension.
 
-For a good experience, OIM recommends that developers utilise [WSL](https://learn.microsoft.com/en-gb/windows/wsl/install) to install and run a recent (LTS) version of Ubuntu Server. This OS is free, has excellent technical support, up-to-date packages, and (importantly) has a vast corpus of documentation available. Ubuntu via WSL is available for installation via **Company Portal**.
+For a good experience, OIM recommends that developers use [WSL](https://learn.microsoft.com/en-gb/windows/wsl/install) to install and run a recent (LTS) version of Ubuntu Server. This OS is free, has excellent technical support, up-to-date packages, and (importantly) has a vast corpus of documentation available. Ubuntu via WSL is available for installation via **Company Portal**.
 
 Some good resources for developers new to working in a Linux command-line environment are as follows:
 
@@ -101,13 +101,29 @@ Some good resources for developers new to working in a Linux command-line enviro
 
 ## Software development best practices
 
-The following ebook is a well-regarded and very readable collection of advice related to software development: [Andrew Hunt, David Thomas - The Pragmatic Programmer - your journey to mastery](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
+The following ebook is a well-regarded and highly readable collection of advice related to software development: [Andrew Hunt, David Thomas - The Pragmatic Programmer - your journey to mastery](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
+
+Good software development practice is not just about writing code that works; it is also about writing code that is maintainable, testable, resilient and secure. The Australian Signals Directorate's [Guidelines for software development](https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/ism/cyber-security-guidelines/guidelines-for-software-development) are a useful reference point for this, particularly in government and critical infrastructure contexts. They emphasise that security should be built in from the start, rather than treated as a final quality check after the fact.
+
+A practical set of principles for developers includes:
+
+- Security by design - identify risks early, assess the impact of failures, and design access controls, data handling and error-handling patterns before implementation begins.
+- Secure coding practices - validate all inputs, manage errors safely, avoid unsafe file and process operations, encode output correctly, and prefer well-understood libraries and frameworks over bespoke solutions.
+- Least privilege and segregation of duties - systems should grant only the permissions required for a task, with administrative functions separated from business functions where possible.
+- Dependency and patch management - review third-party libraries and frameworks regularly, keep them current, and apply patches promptly for known vulnerabilities.
+- Secure configuration and secrets management - avoid hard-coded credentials, store secrets in approved secret-management solutions or environment variables, and ensure production defaults are hardened.
+- Testability and automation - automate unit, integration and security tests as part of the development lifecycle so regressions are caught early and code quality is consistently measured.
+- Code review and change control - peer reviews should check not only correctness, but also security implications, maintainability and operational impact.
+- Observability and resilience - implement appropriate logging, alerting, monitoring and failure handling so issues can be detected and remediated quickly.
+- Documentation and maintainability - good documentation, clear naming, modular design and manageable interfaces reduce the chance of accidental breakage and make secure future changes easier.
+
+In other words, the goal is to build software that is easy to reason about, easy to change, and safe to operate in a real-world environment. These are core principles both of the Pragmatic Programmer philosophy and of the ASD's guidance for secure software development.
 
 ## Information security
 
 Information security is an important topic and relevant to all software developers. The department runs an Information Security Awareness Program (ISAP) training course that is compulsory for all staff. Even if the information seems basic, try to internalise the content and cultivate a security mindset.
 
-Other infosec resources/advice:
+Other useful information security resources/advice:
 
 - [1Password](https://1password.com/) - a service for managing and sharing organisational secrets within OIM.
 - Keep sensitive information out of project repositories - don't commit user credentials, passwords, access keys or database dumps to the repository. Get in the habit of creating a `.gitignore` file and adding relevant file patterns to it in order to reduce the chance of this happening.
